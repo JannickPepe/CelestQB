@@ -7,6 +7,7 @@ import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } fr
 import { RefObject, useEffect, useRef } from "react";
 
 
+// RefObject - A readonly ref container where current cannot be mutated. Created by createRef, or useRef when passed null
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);

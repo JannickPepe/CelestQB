@@ -1,3 +1,4 @@
+import { Reviews } from "@/components/Reviews";
 import { CallToAction } from "@/sections/CallToAction";
 import { Features } from "@/sections/Features";
 import { Footer } from "@/sections/Footer";
@@ -16,6 +17,9 @@ export default function Home() {
       <Features />
       <Testimonials />
       <CallToAction />
+      <div className=''>
+          <Reviews />
+      </div>
       <Footer />
     </>
   );
