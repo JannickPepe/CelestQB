@@ -1,12 +1,12 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import acmeLogo from "@/assets/logo-acme.png";
-import apexLogo from "@/assets/logo-apex.png";
-import celestialLogo from "@/assets/logo-celestial.png";
-import quantumLogo from "@/assets/logo-quantum.png";
-import pulseLogo from "@/assets/logo-pulse.png";
-import echoLogo from "@/assets/logo-echo.png";
+import acmeLogo from "@/assets/logo/ps4-logo.png";
+import apexLogo from "@/assets/logo/ps5-logo.jpg";
+import celestialLogo from "@/assets/logo/pc-logo.png";
+import quantumLogo from "@/assets/logo/xbox-logo.png";
+import pulseLogo from "@/assets/logo/discord-logo.png";
+import echoLogo from "@/assets/logo/YouTube-logo.png";
 import { motion } from "framer-motion";
 
 

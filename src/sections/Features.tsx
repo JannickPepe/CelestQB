@@ -1,7 +1,7 @@
 'use client';
 
 import { DotLottieCommonPlayer, DotLottiePlayer } from "@dotlottie/react-player";
-import productImage from "@/assets/product-image.png";
+import productImage from "@/assets/All-products.jpeg";
 import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionTemplate, useMotionValue, ValueAnimationTransition } from "framer-motion";
 
@@ -9,7 +9,7 @@ import { animate, motion, useMotionTemplate, useMotionValue, ValueAnimationTrans
 const tabs = [
   {
     icon: "/assets/lottie/vroom.lottie",
-    title: "User-friendly dashboard",
+    title: "Features overview",
     isNew: false,
     backgroundPositionX: 0,
     backgroundPositionY: 0,
@@ -17,7 +17,7 @@ const tabs = [
   },
   {
     icon: "/assets/lottie/click.lottie",
-    title: "One-click optimization",
+    title: "Streaming for everyone",
     isNew: false,
     backgroundPositionX: 98,
     backgroundPositionY: 100,
@@ -25,7 +25,7 @@ const tabs = [
   },
   {
     icon: "/assets/lottie/stars.lottie",
-    title: "Smart keyword generator",
+    title: "Guide and tricks",
     isNew: true,
     backgroundPositionX: 100,
     backgroundPositionY: 27,
