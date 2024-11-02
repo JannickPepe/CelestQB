@@ -5,6 +5,7 @@ import starsBg from "@/assets/stars.png";
 import gridLines from "@/assets/grid-lines.png";
 import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { RefObject, useEffect, useRef } from "react";
+import Link from "next/link";
 
 
 // RefObject - A readonly ref container where current cannot be mutated. Created by createRef, or useRef when passed null
@@ -80,9 +81,9 @@ export const CallToAction = () => {
               Get the best out of your gaming by connecting, share and help.
             </p>
 
-            <div className="flex justify-center mt-8">
-              <Button>Join QB updates</Button>
-            </div>
+            <Link href={'https://www.youtube.com/@CelestQB'} className="flex justify-center mt-8">
+              <Button>Subscribe to QB</Button>
+            </Link>
           </div>
         </motion.div>
       </div>

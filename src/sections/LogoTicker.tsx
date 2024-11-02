@@ -17,7 +17,7 @@ export const LogoTicker = () => {
       <div className="container">
         <div className="flex items-center gap-5">
           <div className="flex-1 md:flex-none">
-            <h2>All the Games I am currently playing</h2>
+            <h2>The different platforms that I use</h2>
           </div>
 
           <div className="flex flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)]">

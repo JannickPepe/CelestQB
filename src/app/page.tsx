@@ -1,8 +1,6 @@
 import { Reviews } from "@/components/Reviews";
 import { CallToAction } from "@/sections/CallToAction";
 import { Features } from "@/sections/Features";
-import { Footer } from "@/sections/Footer";
-import { Header } from "@/sections/Header";
 import { Hero } from "@/sections/Hero";
 import { LogoTicker } from "@/sections/LogoTicker";
 import { Testimonials } from "@/sections/Testimonials";
@@ -10,18 +8,31 @@ import { Testimonials } from "@/sections/Testimonials";
 export default function Home() {
 
   return (
-    <>
-      <Header />
-      <Hero />
-      <LogoTicker />
-      <Features />
-      <Testimonials />
-      <CallToAction />
-      <div className=''>
+    <main>
+      <section>
+        <Hero />
+      </section>
+
+      <section>
+        <LogoTicker />
+      </section>
+
+      <section>
+        <Features />
+      </section>
+
+      <section>
+        <Testimonials />
+      </section>
+  
+      <section>
+        <CallToAction />
+      </section>
+
+      <section>
           <Reviews />
-      </div>
-      <Footer />
-    </>
+      </section>
+    </main>
   );
 
 };
