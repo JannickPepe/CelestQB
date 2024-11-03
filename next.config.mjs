@@ -31,8 +31,16 @@ const nextConfig = {
     remotePatterns: [
         {
             protocol: "https",
-            hostname: "example.com", 
+            hostname: "www.gamereactor.eu", 
         },
+        {
+            protocol: "https",
+            hostname: "preview.redd.it"
+        },
+        {
+            protocol: "https",
+            hostname: "static0.gamerantimages.com"
+        }
     ],
   },
 };
