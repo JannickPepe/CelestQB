@@ -31,10 +31,12 @@ export default async function FeaturesPage() {
                         <h2 className="text-xl font-semibold">{tip.title}</h2>
                         <p className="text-sm text-gray-600">{new Date(tip.date).toLocaleDateString()}</p>
                         <p className="mt-2">{tip.text}</p>
-
+                        
+                        {/*
                         {tip.image && (
                             <Image src={tip.image} alt={tip.title} className="mt-2 w-full size-20" height={0} width={0} />
                         )}
+                         */}
                     </div>
                     ))}
                 </div>
@@ -49,9 +51,11 @@ export default async function FeaturesPage() {
                         <p className="text-sm text-gray-600">{new Date(guide.date).toLocaleDateString()}</p>
                         <p className="mt-2">{guide.text}</p>
 
+                        {/*
                         {guide.image && (
                             <Image src={guide.image} alt={guide.title} className="mt-2 w-full size-20" height={0} width={0} />
                         )}
+                         */}
                     </div>
                     ))}
                 </div>
