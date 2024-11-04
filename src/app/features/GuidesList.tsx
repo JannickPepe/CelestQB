@@ -26,7 +26,8 @@ export default function GuidesList({ guides, totalPages, currentPage }: GuidesLi
 
     const handlePageChange = (pageNum: number) => {
         const tipsPage = searchParams.get('tipsPage') || '1';
-        router.push(`/features?guidesPage=${pageNum}&tipsPage=${tipsPage}`);
+        const query = searchParams.get('query') || '';
+        router.push(`/features?guidesPage=${pageNum}&tipsPage=${tipsPage}&query=${query}`);
     };
 
 
