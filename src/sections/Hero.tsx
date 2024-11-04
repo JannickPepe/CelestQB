@@ -4,6 +4,7 @@ import { Button } from "@/components/Button";
 import starsBg from "@/assets/stars.png";
 import { motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 
 export const Hero = () => {
@@ -119,7 +120,9 @@ export const Hero = () => {
         </p>
         
         <div className="flex justify-center mt-5">
-          <Button>Join QB updates</Button>
+            <Link href={'https://www.youtube.com/@CelestQB'}>
+              <Button>Subscribe to QB</Button>
+            </Link>
         </div>
       </div>
 

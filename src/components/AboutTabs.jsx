@@ -30,7 +30,6 @@ const SlideTabs = () => {
         >
             <Tab setPosition={setPosition}>My Story</Tab>
             <Tab setPosition={setPosition}>My Journey</Tab>
-            <Tab setPosition={setPosition}>My Medias</Tab>
             <Tab setPosition={setPosition}>Contact</Tab>
             <Cursor position={position} />
         </ul>

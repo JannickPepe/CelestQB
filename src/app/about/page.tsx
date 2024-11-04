@@ -1,9 +1,9 @@
 import React from 'react'
 import { AboutNav } from '@/components/AboutTabs';
 import { AboutAniText } from '@/components/AboutIntro';
-import MediaIconBar from '@/components/AboutIcons';
 import WhatIDo from '@/components/AboutJourney';
 import StorySection from '@/components/AboutStory';
+import EmailButton from '@/components/OutlookButton';
 
 const About = () => {
     return (
@@ -21,12 +21,14 @@ const About = () => {
                 <WhatIDo />
             </section>
 
-            <section className='text-center'>
-                <MediaIconBar />
-            </section>
+            <section className='text-center mb-12'>
+                <h2 className='text-3xl'>Contact</h2>
+                <div className='flex justify-center items-center gap-8 mt-4'>
+                    <p className='border-2 border-violet-700 py-2 px-3 rounded-xl'>Celestqb<span className='text-purple-500 font-bold'>@</span>hotmail.com</p>
+                    <p className='border-2 border-violet-700 py-2 px-3 rounded-xl'><span className='border-b border-b-purple-500'>PSN</span>: CelestQB</p>
+                </div>
 
-            <section className='text-center'>
-                <h2>Contact</h2>
+                <EmailButton />
             </section>
         </main>
     )

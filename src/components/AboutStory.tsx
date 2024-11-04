@@ -41,7 +41,7 @@ const StorySection: React.FC = () => {
                 <motion.div
                     whileHover="hover"
                     variants={imageVariants}
-                    className="bg-gray-800 p-6 rounded-lg shadow-lg"
+                    className="bg-gray-800 p-6 border-2 border-violet-700 shadow-lg rounded-xl"
                 >
                     <h3 className="text-2xl font-semibold mb-3">Streaming Highlights</h3>
                     <p className="text-gray-400 mb-4">
@@ -52,7 +52,7 @@ const StorySection: React.FC = () => {
                 <motion.div
                     whileHover="hover"
                     variants={imageVariants}
-                    className="bg-gray-800 p-6 rounded-lg shadow-lg"
+                    className="bg-gray-800 p-6 border-2 border-violet-700 shadow-lg rounded-xl"
                 >
                     <h3 className="text-2xl font-semibold mb-3">Epic Game Reviews</h3>
                     <p className="text-gray-400 mb-4">

@@ -17,9 +17,9 @@ export default async function FeaturesPage({searchParams,}: {searchParams: { gui
 
 
     return (
-        <section className="py-10 md:py-16 lg:py-20">
+        <section className="py-10 md:py-16">
 
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 max-w-xs mx-auto md:max-w-none md:mx-0">
                 <h2 className="text-4xl">
                     CelestQB <span className="border-b-2 border-b-purple-500">Tips</span> and <span className="border-b-2 border-b-purple-500">Guides</span> Overview
                 </h2>

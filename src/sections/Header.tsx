@@ -2,6 +2,7 @@ import LogoIcon from "@/assets/logo.svg";
 import MenuIcon from "@/assets/icon-menu.svg";
 import { Button } from "@/components/Button";
 import Link from "next/link";
+import MobileMenu from "./MobileMenu";
 
 export const Header = () => {
 
@@ -21,14 +22,14 @@ export const Header = () => {
               <a href="/features" className="text-white/70 hover:text-white transition">Features</a>
               <a href="/games" className="text-white/70 hover:text-white transition">Games</a>
               <a href="about" className="text-white/70 hover:text-white transition">About</a>
-              <a href="/video" className="text-white/70 hover:text-white transition">Videoes</a>
+              <a href="/video" className="text-white/70 hover:text-white transition">Videos</a>
             </nav>
           </div>
           <div className="flex items-center gap-4">
             <Link href={'https://www.youtube.com/@CelestQB'}>
               <Button>QB Youtube</Button>
             </Link>
-            <MenuIcon className="md:hidden"/>
+            <MobileMenu />
           </div>
         </div>
       </div>
