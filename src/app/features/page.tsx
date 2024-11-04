@@ -19,15 +19,15 @@ export default async function FeaturesPage({searchParams,}: {searchParams: { gui
     return (
         <section className="py-10 md:py-16">
 
-            <div className="text-center mb-12 max-w-xs mx-auto md:max-w-none md:mx-0">
-                <h2 className="text-4xl">
+            <div className="text-center mb-6 md:mb-12 max-w-xs mx-auto md:max-w-none md:mx-0">
+                <h2 className="text-2xl md:text-4xl">
                     CelestQB <span className="border-b-2 border-b-purple-500">Tips</span> and <span className="border-b-2 border-b-purple-500">Guides</span> Overview
                 </h2>
                 <div className="max-w-xl mx-auto mt-6 space-y-6">
-                    <p className="text-xl ">
+                    <p className="text-lg md:text-xl ">
                         If you are looking to make your game experience more easily and comfortable, then look no futher !
                     </p>
-                    <p className="text-xl ">
+                    <p className="text-lg md:text-xl ">
                         Or are you after the fastest run or want to find the best gear? I got your back !
                     </p>
                 </div>
@@ -37,12 +37,16 @@ export default async function FeaturesPage({searchParams,}: {searchParams: { gui
             <SearchBar initialQuery={query} />
 
             <section className="container mx-auto p-4">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center text-purple-500/90">Tips</h1>
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center text-purple-500/90">
+                    Tips
+                </h1>
                 <TipsList tips={tips} totalPages={totalTipsPages} currentPage={tipsPage} />
             </section>
 
             <section className="container mx-auto p-4">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center text-purple-500/90">Guides</h1>
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center text-purple-500/90">
+                    Guides
+                </h1>
                 <GuidesList guides={guides} totalPages={totalGuidesPages} currentPage={guidesPage} />
             </section>
         </section>

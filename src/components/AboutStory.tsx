@@ -43,8 +43,8 @@ const StorySection: React.FC = () => {
                     variants={imageVariants}
                     className="bg-gray-800 p-6 border-2 border-violet-700 shadow-lg rounded-xl"
                 >
-                    <h3 className="text-2xl font-semibold mb-3">Streaming Highlights</h3>
-                    <p className="text-gray-400 mb-4">
+                    <h3 className="text-lg md:text-2xl font-semibold mb-3">Streaming Highlights</h3>
+                    <p className="text-gray-400 mb-4 text-base">
                         Engaging live streams with interactive content and real-time gameplay. Join me as I take on various challenges and interact with viewers in real-time.
                     </p>
                 
@@ -54,8 +54,8 @@ const StorySection: React.FC = () => {
                     variants={imageVariants}
                     className="bg-gray-800 p-6 border-2 border-violet-700 shadow-lg rounded-xl"
                 >
-                    <h3 className="text-2xl font-semibold mb-3">Epic Game Reviews</h3>
-                    <p className="text-gray-400 mb-4">
+                    <h3 className="text-lg md:text-2xl font-semibold mb-3">Epic Game Reviews</h3>
+                    <p className="text-gray-400 mb-4 text-base">
                         In-depth reviews of the latest and greatest games. Discover what makes these games stand out and why theyre worth playing.
                     </p>
             

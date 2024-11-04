@@ -37,8 +37,8 @@ const WhatIDo: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gray-800 p-6 rounded-lg shadow-lg"
                 >
-                    <h3 className="text-2xl font-semibold mb-3">Streaming</h3>
-                    <p className="text-gray-400">
+                    <h3 className="text-lg md:text-2xl font-semibold mb-3">Streaming</h3>
+                    <p className="text-gray-400 text-base">
                         Engaging live streams with interactive content and real-time gameplay.
                     </p>
                 </motion.div>
@@ -46,8 +46,8 @@ const WhatIDo: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gray-800 p-6 rounded-lg shadow-lg"
                 >
-                    <h3 className="text-2xl font-semibold mb-3">Game Reviews</h3>
-                    <p className="text-gray-400">
+                    <h3 className="text-lg md:text-2xl font-semibold mb-3">Game Reviews</h3>
+                    <p className="text-gray-400 text-base">
                         In-depth game reviews, highlighting the best and worst aspects of your favorite titles.
                     </p>
                 </motion.div>
@@ -55,8 +55,8 @@ const WhatIDo: React.FC = () => {
                     whileHover={{ scale: 1.05 }}
                     className="bg-gray-800 p-6 rounded-lg shadow-lg"
                 >
-                    <h3 className="text-2xl font-semibold mb-3">Tutorials & Guides</h3>
-                    <p className="text-gray-400">
+                    <h3 className="text-lg md:text-2xl font-semibold mb-3">Tutorials & Guides</h3>
+                    <p className="text-gray-400 text-base">
                         Comprehensive tutorials and guides to help you master your favorite games.
                     </p>
                 </motion.div>

@@ -76,7 +76,7 @@ export const CallToAction = () => {
           </motion.div>
           
           <div className="relative">
-            <h2 className="text-5xl md:text-6xl max-w-2xl mx-auto tracking-tighter text-center font-medium">CelestQB gaming community for everyone.</h2>
+            <h2 className="text-3xl md:text-6xl max-w-2xl mx-auto tracking-tighter text-center font-medium">CelestQB gaming community for everyone.</h2>
             <p className="text-lg md:text-xl max-w-xs mx-auto text-center px-4 text-white/70 mt-5 tracking-tight">
               Get the best out of your gaming by connecting, share and help.
             </p>

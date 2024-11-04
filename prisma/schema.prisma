@@ -1,5 +1,5 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["tracing"]
 }
 
@@ -9,17 +9,30 @@ datasource db {
 }
 
 model Guide {
-  id    Int      @id @default(autoincrement())
-  title String
-  text  String
-  date  DateTime
-  image String?
+  id       Int        @id @default(autoincrement())
+  title    String
+  text     String
+  date     DateTime
+  image    String?
+  comments Comment[]
 }
 
 model Tip {
-  id    Int      @id @default(autoincrement())
-  title String
-  text  String
-  date  DateTime
-  image String?
+  id       Int        @id @default(autoincrement())
+  title    String
+  text     String
+  date     DateTime
+  image    String?
+  comments Comment[]
+}
+
+model Comment {
+  id       Int       @id @default(autoincrement())
+  content  String
+  createdAt DateTime @default(now())
+  userName String
+  guide    Guide?    @relation(fields: [guideId], references: [id])
+  guideId  Int?
+  tip      Tip?      @relation(fields: [tipId], references: [id])
+  tipId    Int?
 }

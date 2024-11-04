@@ -8,7 +8,7 @@ const page = () => {
 
                 <div className="mb-10">
                     <h1 className="text-center text-2xl md:text-4xl lg:text-5xl font-black">
-                        My <span className="text-indigo-600">recent</span> uploaded <span className="text-indigo-600">Youtube </span> Videos
+                        My <span className="text-violet-600">recent</span> uploaded <span className="text-violet-600">Youtube </span> Videos
                     </h1>
                     <p>
 
