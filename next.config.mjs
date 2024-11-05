@@ -31,7 +31,7 @@ const nextConfig = {
     remotePatterns: [
         {
             protocol: "https",
-            hostname: "www.gamereactor.eu", 
+            hostname: "cdnb.artstation.com", 
         },
         {
             protocol: "https",
@@ -39,7 +39,19 @@ const nextConfig = {
         },
         {
             protocol: "https",
-            hostname: "static0.gamerantimages.com"
+            hostname: "static1.srcdn.com"
+        },
+        {
+          protocol: "https",
+          hostname: "platform.polygon.com"
+        },
+        {
+          protocol: "https",
+          hostname: "sm.ign.com"
+        },
+        {
+          protocol: "https",
+          hostname: "www.google.com"
         }
     ],
   },
