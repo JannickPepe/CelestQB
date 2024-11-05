@@ -20,6 +20,7 @@ const responses: TopicResponses = {
     },
     wukong: {
         "how to beat erlang": "If you want to beat Erlang, you need to git gud!",
+        "How to beat Erlang": "If you want to beat Erlang, you need to git gud!",
         "best strategy": "Utilize your mobility and play defensively to outmaneuver your opponents.",
     },
     starWars: {

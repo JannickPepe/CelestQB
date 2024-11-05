@@ -47,9 +47,9 @@ export default function Chat() {
 
   return (
     <div className="">
-      <h1 className="text-xl font-bold text-center">Game Helper Chat</h1>
+      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center">Game Helper Chat</h1>
 
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center mt-2'>
         <select
           onChange={(e) => setSelectedTopic(Number(e.target.value))}
           className="mt-2 text-zinc-800 "
@@ -65,13 +65,13 @@ export default function Chat() {
       <textarea
         value={question}
         onChange={(e) => setQuestion(e.target.value)}
-        className="w-full mt-2 p-2 border text-black flex justify-center"
-        placeholder="Ask a question..."
+        className="w-full mt-4 p-2 border text-black flex justify-center"
+        placeholder="select a topic and ask"
       />
 
-      <div className='flex justify-center items-center'>
-        <button onClick={handleChat} className="mt-2 bg-blue-500 text-white p-2 rounded">
-          Ask
+      <div className='flex justify-center items-center mt-2'>
+        <button onClick={handleChat} className="mt-2 bg-purple-700 text-white p-2 rounded">
+          Ask Me
         </button>
       </div>
       

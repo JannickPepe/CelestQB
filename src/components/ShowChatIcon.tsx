@@ -5,6 +5,7 @@ import starsBg from "@/assets/stars.png";
 import gridLines from "@/assets/grid-lines.png";
 import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { RefObject, useEffect, useRef, useState } from "react";
+import { IoCloseCircleSharp } from "react-icons/io5";
 
 
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
@@ -94,7 +95,7 @@ const ScrollIcon: React.FC = () => {
                 ) : (
                     <motion.div 
                         ref={borderedDivRef}
-                            className="border border-white/15 py-16 rounded-xl overflow-hidden relative group px-16" 
+                            className="border border-white/15 py-16 rounded-xl overflow-hidden relative group px-16 left-6 md:left-0" 
                             style={{backgroundImage: `url(${starsBg.src})`, backgroundPositionY}}
                             animate={{backgroundPositionX: starsBg.width, }}
                             transition={{
@@ -120,9 +121,9 @@ const ScrollIcon: React.FC = () => {
                         <div className="relative z-[999999]">
                             <button
                                 onClick={handleCloseClick}
-                                className="absolute -top-10 -right-10 text-white rounded-full w-8 h-8 flex items-center justify-center"
+                                className="absolute -top-10 -right-10 rounded-full w-8 h-8 flex items-center justify-center"
                                 >
-                                &times;
+                                <IoCloseCircleSharp size={20} className='text-white' />
                             </button>
                             <Chat />
                         </div>
