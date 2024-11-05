@@ -4,30 +4,36 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { EldenRingList, SWBFList, WukongList } from "../utils";
+import { GameChat } from "@/sections/GameChat";
 
 
 const Games = () => {
     const [selected, setSelected] = useState(0);
 
     return (
-        <section className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-6 px-4 py-8 mb-4 md:flex-row md:gap-12 md:px-8">
-            <AnimatePresence mode="wait">
-                {FEATURES.map((tab, index) => {
-                    return selected === index ? (
-                        <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 10 }}
-                        key={index}
-                        className="w-full"
-                        >
-                        <tab.Feature />
-                        </motion.div>
-                    ) : undefined;
-                })}
-            </AnimatePresence>
-            <Tabs selected={selected} setSelected={setSelected} />
-        </section>
+        <>
+            <section className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-6 px-4 py-8 mb-4 md:flex-row md:gap-12 md:px-8">
+                <AnimatePresence mode="wait">
+                    {FEATURES.map((tab, index) => {
+                        return selected === index ? (
+                            <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 10 }}
+                            key={index}
+                            className="w-full"
+                            >
+                            <tab.Feature />
+                            </motion.div>
+                        ) : undefined;
+                    })}
+                </AnimatePresence>
+                <Tabs selected={selected} setSelected={setSelected} />
+            </section>  
+            <div>
+                <GameChat />
+            </div>        
+        </>
     );
 };
 

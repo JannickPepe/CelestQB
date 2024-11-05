@@ -58,6 +58,7 @@ export default function Chat() {
           <option value="">Select Topic</option>
           {topics.map((topic) => (
             <option key={topic.id} value={topic.id}>{topic.name}</option>
+            
           ))}
         </select>
       </div>

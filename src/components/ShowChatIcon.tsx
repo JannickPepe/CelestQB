@@ -6,6 +6,8 @@ import gridLines from "@/assets/grid-lines.png";
 import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { RefObject, useEffect, useRef, useState } from "react";
 import { IoCloseCircleSharp } from "react-icons/io5";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+
 
 
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
@@ -81,7 +83,7 @@ const ScrollIcon: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: isVisible ? 1 : 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed bottom-10 right-10 z-[999999]"
+            className="fixed bottom-10 right-10 z-[999999] hidden md:block"
         >
             <motion.div
                 initial={{ width: 50, height: 50 }}
@@ -91,7 +93,7 @@ const ScrollIcon: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
             >
                 {!isExpanded ? (
-                    <span>+</span>
+                    <IoChatbubbleEllipsesOutline size={30} className='text-white' />
                 ) : (
                     <motion.div 
                         ref={borderedDivRef}
@@ -121,7 +123,7 @@ const ScrollIcon: React.FC = () => {
                         <div className="relative z-[999999]">
                             <button
                                 onClick={handleCloseClick}
-                                className="absolute -top-10 -right-10 rounded-full w-8 h-8 flex items-center justify-center"
+                                className="absolute -top-5 -right-10 rounded-full w-8 h-8 flex items-center justify-center"
                                 >
                                 <IoCloseCircleSharp size={20} className='text-white' />
                             </button>
