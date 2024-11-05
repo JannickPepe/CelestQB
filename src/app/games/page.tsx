@@ -1,6 +1,6 @@
 "use client"
 
-import { ReactNode, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { EldenRingList, SWBFList, WukongList } from "../utils";

@@ -14,7 +14,7 @@ model Guide {
   text     String
   date     DateTime
   image    String?
-  comments Comment[]
+  comments comments[]
 }
 
 model Tip {
@@ -23,16 +23,32 @@ model Tip {
   text     String
   date     DateTime
   image    String?
-  comments Comment[]
+  comments comments[]
 }
 
-model Comment {
-  id       Int       @id @default(autoincrement())
-  content  String
-  createdAt DateTime @default(now())
-  userName String
-  guide    Guide?    @relation(fields: [guideId], references: [id])
-  guideId  Int?
-  tip      Tip?      @relation(fields: [tipId], references: [id])
-  tipId    Int?
+model ChatHistory {
+  id         Int       @id @default(autoincrement())
+  topicId    Int?
+  question   String
+  response   String?
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  topics     Topic?    @relation(fields: [topicId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model comments {
+  id         Int       @id @default(autoincrement())
+  content    String
+  created_at DateTime? @default(now()) @db.Timestamp(6)
+  guide_id   Int?
+  tip_id     Int?
+  user_name  String    @db.VarChar(255)
+  Guide      Guide?    @relation(fields: [guide_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  Tip        Tip?      @relation(fields: [tip_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+}
+
+model Topic {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  description  String?
+  chat_history ChatHistory[]
 }
