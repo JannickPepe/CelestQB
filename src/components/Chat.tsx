@@ -57,7 +57,7 @@ export default function Chat() {
       setResponse("An error occurred. Please try again.");
     }
   };
-  
+
 
   return (
     <div className="">
@@ -85,14 +85,14 @@ export default function Chat() {
       />
 
       <div className='flex justify-center items-center mt-2'>
-        <button onClick={handleChat} className="mt-2 bg-purple-700 text-white p-2 rounded">
+        <button onClick={handleChat} className="mt-2 bg-purple-700/60 text-white p-2 rounded">
           Ask Me
         </button>
       </div>
       
       <div className=''>
         {response && 
-          <p className="mt-4">{response}</p>
+          <p className="mt-4 px-4 md:px-0">{response}</p>
         }
       </div>
     </div>

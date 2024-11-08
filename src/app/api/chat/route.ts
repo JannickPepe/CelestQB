@@ -38,34 +38,36 @@ export async function POST(req: Request) {
         const topic = await prisma.topic.findUnique({
             where: { id: topicId },
         });
+
         if (!topic) {
             return NextResponse.json({ error: 'Topic not found' }, { status: 404 });
         }
+
         // Normalize topic name for matching
-    const topicName = topic.name.toLowerCase().replace(/\s+/g, '');
-    const sanitizedQuestion = question.toLowerCase().trim().replace(/[^\w\s]/g, '');
+        const topicName = topic.name.toLowerCase().replace(/\s+/g, '');
+        const sanitizedQuestion = question.toLowerCase().trim().replace(/[^\w\s]/g, '');
 
-    const response = responses[topicName]?.[sanitizedQuestion] || "I'm not sure about that. Could you ask something else?";
+        const response = responses[topicName]?.[sanitizedQuestion] || "I'm not sure about that. Could you ask something else?";
 
-    const chatHistory = await prisma.chatHistory.create({
-      data: {
-        topicId: topicId,
-        question,
-        response,
-      },
-    });
+        const chatHistory = await prisma.chatHistory.create({
+            data: {
+                topicId: topicId,
+                question,
+                response,
+            },
+        });
 
-    // Set cache-control headers
-    return NextResponse.json(
-      { response, chatHistory },
-      {
-        headers: {
-          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        },
-      }
-    );
+        // Set cache-control headers
+        return NextResponse.json(
+            { response, chatHistory },
+            {
+                headers: {
+                'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                'Pragma': 'no-cache',
+                'Expires': '0',
+                },
+            }
+        );
         } catch (error) {
         console.error(error);
         return NextResponse.json({ error: 'Error processing chat' }, { status: 500 });
