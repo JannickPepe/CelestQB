@@ -41,30 +41,31 @@ export async function POST(req: Request) {
         if (!topic) {
             return NextResponse.json({ error: 'Topic not found' }, { status: 404 });
         }
-        // Normalize topic name for matching (lowercase and remove spaces)
-        const topicName = topic.name.toLowerCase().replace(/\s+/g, '');
-        console.log("Normalized topic name:", topicName);  // Log topicName
-        console.log("User question:", question.toLowerCase());  // Log question
-    
-        // Sanitize the user question to ensure it matches our responses object
-        const sanitizedQuestion = question.toLowerCase().trim().replace(/[^\w\s]/g, '');
-        console.log("Sanitized question:", sanitizedQuestion);  // Log sanitized question
+        // Normalize topic name for matching
+    const topicName = topic.name.toLowerCase().replace(/\s+/g, '');
+    const sanitizedQuestion = question.toLowerCase().trim().replace(/[^\w\s]/g, '');
 
-        // Access the response using the normalized topicName and sanitized question
-        const response = responses[topicName]?.[sanitizedQuestion] || "I'm not sure about that. Could you ask something else?";
-        console.log("Matched response:", response);  // Log the matched response
-    
-        const chatHistory = await prisma.chatHistory.create({
-            data: {
-            topicId: topicId,
-            question: question,
-            response: response, // Store the AI response in the chat history
-            },
-        });
-    
-        // Return response with headers to prevent caching
-        return NextResponse.json({ response, chatHistory });
-        
+    const response = responses[topicName]?.[sanitizedQuestion] || "I'm not sure about that. Could you ask something else?";
+
+    const chatHistory = await prisma.chatHistory.create({
+      data: {
+        topicId: topicId,
+        question,
+        response,
+      },
+    });
+
+    // Set cache-control headers
+    return NextResponse.json(
+      { response, chatHistory },
+      {
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        },
+      }
+    );
         } catch (error) {
         console.error(error);
         return NextResponse.json({ error: 'Error processing chat' }, { status: 500 });
