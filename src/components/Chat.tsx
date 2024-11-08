@@ -31,19 +31,33 @@ export default function Chat() {
   }, []);
 
   const handleChat = async (event: React.FormEvent)=> {
-    event.preventDefault();
-    if (!selectedTopic) {
-      alert("Please select a topic first!");
+    if (!selectedTopic || !setQuestion) {
+      alert("Please select a topic and enter a question.");
       return;
     }
+  
     try {
-      const res = await axios.post('/api/chat', { question, topicId: selectedTopic });
-      setResponse(res.data.response);
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ topicId: selectedTopic, question: setQuestion }),
+        cache: 'no-store',  // Prevents caching on mobile and desktop
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        setResponse(data.response); // Display the response in your component
+      } else {
+        setResponse("No result available. Please try again.");
+      }
     } catch (error) {
-      console.error("Failed to get response:", error);
+      console.error("Error sending message:", error);
+      setResponse("An error occurred. Please try again.");
     }
   };
-
+  
 
   return (
     <div className="">

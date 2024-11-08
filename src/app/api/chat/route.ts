@@ -38,14 +38,11 @@ export async function POST(req: Request) {
         const topic = await prisma.topic.findUnique({
             where: { id: topicId },
         });
-    
         if (!topic) {
             return NextResponse.json({ error: 'Topic not found' }, { status: 404 });
         }
-    
         // Normalize topic name for matching (lowercase and remove spaces)
         const topicName = topic.name.toLowerCase().replace(/\s+/g, '');
-    
         // Access the response using the type-safe access
         const response = responses[topicName]?.[question.toLowerCase()] || "I'm not sure about that. Could you ask something else?";
     
@@ -57,8 +54,18 @@ export async function POST(req: Request) {
             },
         });
     
-        return NextResponse.json({ response, chatHistory });
-
+        // Return response with headers to prevent caching
+        return NextResponse.json(
+            { response, chatHistory },
+            {
+                headers: {
+                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+                    'Pragma': 'no-cache',
+                    'Expires': '0',
+                    'Surrogate-Control': 'no-store',
+                },
+            }
+        );
         } catch (error) {
         console.error(error);
         return NextResponse.json({ error: 'Error processing chat' }, { status: 500 });
