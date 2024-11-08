@@ -43,8 +43,16 @@ export async function POST(req: Request) {
         }
         // Normalize topic name for matching (lowercase and remove spaces)
         const topicName = topic.name.toLowerCase().replace(/\s+/g, '');
-        // Access the response using the type-safe access
-        const response = responses[topicName]?.[question.toLowerCase()] || "I'm not sure about that. Could you ask something else?";
+        console.log("Normalized topic name:", topicName);  // Log topicName
+        console.log("User question:", question.toLowerCase());  // Log question
+    
+        // Sanitize the user question to ensure it matches our responses object
+        const sanitizedQuestion = question.toLowerCase().trim().replace(/[^\w\s]/g, '');
+        console.log("Sanitized question:", sanitizedQuestion);  // Log sanitized question
+
+        // Access the response using the normalized topicName and sanitized question
+        const response = responses[topicName]?.[sanitizedQuestion] || "I'm not sure about that. Could you ask something else?";
+        console.log("Matched response:", response);  // Log the matched response
     
         const chatHistory = await prisma.chatHistory.create({
             data: {
@@ -55,17 +63,8 @@ export async function POST(req: Request) {
         });
     
         // Return response with headers to prevent caching
-        return NextResponse.json(
-            { response, chatHistory },
-            {
-                headers: {
-                    'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
-                    'Pragma': 'no-cache',
-                    'Expires': '0',
-                    'Surrogate-Control': 'no-store',
-                },
-            }
-        );
+        return NextResponse.json({ response, chatHistory });
+        
         } catch (error) {
         console.error(error);
         return NextResponse.json({ error: 'Error processing chat' }, { status: 500 });
