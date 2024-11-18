@@ -47,7 +47,38 @@ async function main() {
             },
         ],
     });
+
+   // Create genres
+    const genreData = [
+        { name: "Action" },
+        { name: "RPG" },
+        { name: "Adventure" },
+    ];
+
+    const genres = await Promise.all(
+        genreData.map((genre) =>
+            prisma.genre.upsert({
+                where: { name: genre.name }, // Use `name` as unique field
+                update: {}, // No updates required
+                create: genre,
+            })
+        )
+    );
+    console.log("Genres seeded:", genres);
+
+    // Create topics and link genres using their IDs
+    await prisma.topic.create({
+        data: {
+            name: "Dragonball",
+            description: "A game based on the legend of the Monkey King",
+            genres: {
+                connect: genres.map((genre) => ({ id: genre.id })),
+            },
+        },
+    });
+    console.log("Topics seeded with genres!");
 }
+
 
 main()
     .then(async () => {

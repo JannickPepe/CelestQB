@@ -51,4 +51,11 @@ model Topic {
   name         String        @unique
   description  String?
   chat_history ChatHistory[]
+  genres      Genre[]     @relation("TopicGenres")
+}
+
+model Genre {
+  id      Int     @id @default(autoincrement())
+  name    String  @unique
+  topics  Topic[] @relation("TopicGenres")
 }

@@ -40,16 +40,13 @@ export const GameChat = () => {
 
     const sectionRef = useRef<HTMLElement>(null);
     const borderedDivRef = useRef<HTMLDivElement>(null);
-
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ['start end', 'end start'],
     });
 
     const backgroundPositionY = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-
     const [mouseX, mouseY] = useRelativeMousePosition(borderedDivRef);
-
     const maskImage = useMotionTemplate `radial-gradient(50% 50% at ${mouseX}px ${mouseY}px, black, transparent)`;
 
     const [topics, setTopics] = useState<Topic[]>([]); // Explicitly type topics as Topic[]
@@ -94,15 +91,15 @@ export const GameChat = () => {
         <section className="py-20" ref={sectionRef}>
             <div className="container">
                 <motion.div 
-                ref={borderedDivRef}
-                className="border border-white/15 py-24 rounded-xl overflow-hidden relative group" 
-                style={{backgroundImage: `url(${starsBg.src})`, backgroundPositionY}}
-                animate={{backgroundPositionX: starsBg.width, }}
-                transition={{
-                    repeat: Infinity,
-                    ease: 'linear',
-                    duration: 60,
-                }}
+                    ref={borderedDivRef}
+                    className="border border-white/15 py-24 rounded-xl overflow-hidden relative group" 
+                    style={{backgroundImage: `url(${starsBg.src})`, backgroundPositionY}}
+                    animate={{backgroundPositionX: starsBg.width, }}
+                    transition={{
+                        repeat: Infinity,
+                        ease: 'linear',
+                        duration: 60,
+                    }}
                 >
                     <div 
                         className="absolute inset-0 bg-[rgb(74,32,138)] bg-blend-overlay [mask-image:radial-gradient(50%_50%_at_50%_35%,black,transparent)] group-hover:opacity-0 transition duration-700" 
@@ -121,7 +118,7 @@ export const GameChat = () => {
                     <div className="relative ">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6">Game Helper Chat</h1>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center my-4 px-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center my-6 px-6">
                             {topics.map((topic) => (
                                 <div key={topic.id}>
                                     <div className="border-2 border-purple-600 px-2 py-2 text-base font-light" style={{borderRadius:7}}>
@@ -152,14 +149,16 @@ export const GameChat = () => {
                         />
 
                         <div className='flex justify-center items-center mt-2'>
-                            <button onClick={handleChat} className="mt-2 bg-purple-700 text-white p-2 rounded">
+                            <button onClick={handleChat} className="mt-2 border-2 border-purple-700 text-white p-2 rounded">
                                 Ask Me
                             </button>
                         </div>
 
-                        <div className=''>
+                        <div className='text-center mx-auto'>
                             {response && 
-                                <p className="mt-4 text-center">{response}</p>
+                                <p className="mt-6 text-center mx-auto max-w-lg " style={{borderRadius:5}}>
+                                    {response}
+                                </p>
                             }
                         </div>
                     </div>
