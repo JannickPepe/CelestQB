@@ -14,7 +14,7 @@ const WhatIDo: React.FC = () => {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="py-10 md:py-16 text-white"
+            className=" text-white"
         >
         <div className="container mx-auto px-6 lg:px-12 text-center">
             <motion.h2

@@ -5,6 +5,8 @@ import { twMerge } from "tailwind-merge";
 import { Footer } from "@/sections/Footer";
 import { Header } from "@/sections/Header";
 import ScrollIcon from "@/components/ShowChatIcon";
+import { Analytics } from "@vercel/analytics/react"
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={twMerge(inter.className, "bg-black text-white antialiased")}>
+        <Analytics />
         <Header />
         <ScrollIcon />
         {children}

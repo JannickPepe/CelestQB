@@ -164,7 +164,7 @@ export const GameChat = () => {
                         </div>
 
                         {/* Pagination Controls */}
-                        <div className="flex justify-center items-center gap-2">
+                        <div className="flex justify-center items-center gap-2 mb-6">
                             <button
                                 onClick={handlePrev}
                                 disabled={currentPage === 1}
@@ -187,7 +187,7 @@ export const GameChat = () => {
                          */}
 
                          {/* Dropdown for selecting topics */}
-                        <div className="my-6 mx-auto text-center">
+                        <div className="my-4 mx-auto text-center">
                             <select
                                 id="topic-select"
                                 value={selectedTopic || ""}
@@ -208,7 +208,7 @@ export const GameChat = () => {
                         <textarea
                             value={question}
                             onChange={(e) => setQuestion(e.target.value)}
-                            className="w-full px-4 py-3 text-gray-800 bg-white border border-gray-300 max-w-[360px] grid mx-auto shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none hover:border-blue-500 hover:shadow-lg transition duration-300 ease-in-out"
+                            className="w-full px-2 py-3 text-gray-800 bg-white border border-gray-300 max-w-[360px] grid mx-auto shadow-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none hover:border-violet-500 hover:shadow-lg transition duration-300 ease-in-out"
                             style={{borderRadius:7}}
                             placeholder="Type your question..."
                         />

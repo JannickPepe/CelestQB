@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export const AboutAniText = () => {
     return (
-        <div className="px-4 py-4 md:py-10 text-center">
+        <div className="text-center">
             <div className="text-2xl font-medium text-zinc-300 sm:text-3xl md:text-4xl lg:text-5xl">
                 CelestQB Gaming Offers:
                 <AnimatedText

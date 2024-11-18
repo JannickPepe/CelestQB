@@ -18,6 +18,8 @@ const SlideTabs = () => {
         opacity: 0,
     });
 
+    const handleScroll = (id) => { const element = document.getElementById(id); if (element) { element.scrollIntoView({ behavior: 'smooth' }); } };
+
     return (
         <ul
             onMouseLeave={() => {
@@ -28,9 +30,9 @@ const SlideTabs = () => {
             }}
             className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-purple-700/80 text-white p-1"
         >
-            <Tab setPosition={setPosition}>My Story</Tab>
-            <Tab setPosition={setPosition}>My Journey</Tab>
-            <Tab setPosition={setPosition}>Contact</Tab>
+            <Tab setPosition={setPosition}><li onClick={() => handleScroll('mystory')}>My Story</li></Tab>
+            <Tab setPosition={setPosition}><li onClick={() => handleScroll('myjourney')}>My Journey</li></Tab>
+            <Tab setPosition={setPosition}><li onClick={() => handleScroll('contact')}>Contact</li></Tab>
             <Cursor position={position} />
         </ul>
     );
@@ -40,7 +42,7 @@ const Tab = ({ children, setPosition }) => {
     const ref = useRef(null);
 
     return (
-        <li
+        <div
             ref={ref}
             onMouseEnter={() => {
                 if (!ref?.current) return;
@@ -56,7 +58,7 @@ const Tab = ({ children, setPosition }) => {
             className="relative z-10 block cursor-pointer px-3 py-1.5 text-sm uppercase text-white md:px-5 md:py-2"
         >
             {children}
-        </li>
+        </div>
     );
 };
 
