@@ -5,13 +5,14 @@ import gridLines from "@/assets/grid-lines.png";
 import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { RefObject, useEffect, useRef, useState } from "react";
 import axios from 'axios';
+import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
+
 
 interface Topic {
     id: number;
-    name: string;
+    topicName: string;
     description?: string;
 }
-
 
 // RefObject - A readonly ref container where current cannot be mutated. Created by createRef, or useRef when passed null
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
@@ -31,6 +32,7 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
         return () => {
             window.removeEventListener('mousemove', updateMousePosition)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return [mouseX, mouseY];
@@ -49,29 +51,61 @@ export const GameChat = () => {
     const [mouseX, mouseY] = useRelativeMousePosition(borderedDivRef);
     const maskImage = useMotionTemplate `radial-gradient(50% 50% at ${mouseX}px ${mouseY}px, black, transparent)`;
 
-    const [topics, setTopics] = useState<Topic[]>([]); // Explicitly type topics as Topic[]
+    const [allTopics, setAllTopics] = useState<Topic[]>([]); // For dropdown options
     const [selectedTopic, setSelectedTopic] = useState<number | null>(null); // Store selected topic ID
     const [question, setQuestion] = useState('');
     const [response, setResponse] = useState('');
 
-    useEffect(() => {
-        const fetchTopics = async () => {
-            try {
-                const res = await fetch('/api/topics');
-                if (res.ok) {
-                    const data = await res.json();
-                    setTopics(data); // Assuming `setTopics` updates your topics state
-                } else {
-                    console.error("Failed to fetch topics");
-                }
-                
-            } catch (error) {
-                console.error("Error fetching topics:", error);
-            }
-        };
-        fetchTopics();
-    }, []);
+    const [paginatedTopics, setPaginatedTopics] = useState<Topic[]>([]); // For descriptions
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const itemsPerPage = 3;
 
+     // Fetch all topics for the dropdown
+    const fetchAllTopics = async () => {
+        try {
+            const res = await fetch(`/api/topics?page=1&itemsPerPage=100`); // Fetch all topics
+            if (!res.ok) throw new Error("Failed to fetch topics");
+
+            const data = await res.json();
+            setAllTopics(data.topics);
+
+        } catch (error) {
+            console.error("Error fetching all topics:", error);
+        }
+    };
+
+    const fetchPaginatedTopics = async (page: number) => {
+        try {
+            const res = await fetch(`/api/topics?page=${page}&itemsPerPage=${itemsPerPage}`);
+            if (!res.ok) throw new Error("Failed to fetch paginated topics");
+
+            const data = await res.json();
+            setPaginatedTopics(data.topics);
+            setTotalPages(data.totalPages);
+
+        } catch (error) {
+            console.error("Error fetching paginated topics:", error);
+        }
+    };
+
+    // Fetch topics for the dropdown and pagination on initial render
+    useEffect(() => {
+        fetchAllTopics();
+        fetchPaginatedTopics(currentPage);
+    }, [currentPage]);
+
+    const handlePrev = () => {
+        if (currentPage > 1) setCurrentPage((prev) => prev - 1);
+    };
+    const handleNext = () => {
+        if (currentPage < totalPages) setCurrentPage((prev) => prev + 1);
+    };
+    const handleTopicChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedTopic(Number(e.target.value));
+    };
+
+    // For my chat question and answer
     const handleChat = async (event: React.FormEvent)=> {
         event.preventDefault();
         if (!selectedTopic) {
@@ -118,25 +152,55 @@ export const GameChat = () => {
                     <div className="relative ">
                         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6">Game Helper Chat</h1>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center my-6 px-6">
-                            {topics.map((topic) => (
-                                <div key={topic.id}>
-                                    <div className="border-2 border-purple-600 px-2 py-2 text-base font-light" style={{borderRadius:7}}>
-                                        {topic.description}
-                                    </div>
+                        {/* Display paginated topic descriptions */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto text-center max-w-4xl">
+                            {paginatedTopics.map((topic) => (
+                            <div key={topic.id} className="mb-4">
+                                <div className="border-2 border-purple-600" style={{borderRadius:7}}>
+                                    <p className="p-2 text-sm font-semibold">{topic.description}</p>
                                 </div>
+                            </div>
                             ))}
                         </div>
 
-                        <div className='flex justify-center items-center mt-6'>
-                            <select
-                                onChange={(e) => setSelectedTopic(Number(e.target.value))}
-                                className="mt-2 text-zinc-800 "
-                                value={selectedTopic || ''}
+                        {/* Pagination Controls */}
+                        <div className="flex justify-center items-center gap-2">
+                            <button
+                                onClick={handlePrev}
+                                disabled={currentPage === 1}
+                                className="disabled:opacity-50"
                             >
-                                <option value="">Select Topic</option>
-                                {topics.map((topic) => (
-                                    <option key={topic.id} value={topic.id}>{topic.name}</option>
+                                <FaRegArrowAltCircleLeft className="size-5" />
+                            </button>
+                            <button
+                                onClick={handleNext}
+                                disabled={currentPage === totalPages}
+                                className="disabled:opacity-50"
+                            >
+                                <FaRegArrowAltCircleRight className="size-5" />
+                            </button>
+                        </div>
+                        {/*
+                        <p className="mt-4 text-center">
+                            Page {currentPage} of {totalPages || 1}
+                        </p>
+                         */}
+
+                         {/* Dropdown for selecting topics */}
+                        <div className="my-6 mx-auto text-center">
+                            <select
+                                id="topic-select"
+                                value={selectedTopic || ""}
+                                onChange={handleTopicChange}
+                                className="mt-2 p-2 border border-gray-300 rounded bg-gray-100 text-gray-700 focus:outline-none"
+                            >
+                                <option value="" disabled>
+                                    Topics
+                                </option>
+                                {allTopics.map((topic) => (
+                                    <option key={topic.id} value={topic.id}>
+                                        {topic.topicName}
+                                    </option>
                                 ))}
                             </select>
                         </div>
@@ -144,8 +208,9 @@ export const GameChat = () => {
                         <textarea
                             value={question}
                             onChange={(e) => setQuestion(e.target.value)}
-                            className="mt-4 p-2 border text-black flex justify-center max-w-[400px] md:w-full mx-auto focus:outline-none"
-                            placeholder="select a topic and ask"
+                            className="w-full px-4 py-3 text-gray-800 bg-white border border-gray-300 max-w-[360px] grid mx-auto shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none hover:border-blue-500 hover:shadow-lg transition duration-300 ease-in-out"
+                            style={{borderRadius:7}}
+                            placeholder="Type your question..."
                         />
 
                         <div className='flex justify-center items-center mt-2'>
