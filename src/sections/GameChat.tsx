@@ -6,6 +6,7 @@ import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } fr
 import { RefObject, useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
+import ChatHistoryComponent from "@/components/ChatHistory";
 
 
 interface Topic {
@@ -123,10 +124,12 @@ export const GameChat = () => {
 
     return (
         <section className="py-20" ref={sectionRef}>
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6">Game Helper Chat</h1>
+
             <div className="container">
                 <motion.div 
                     ref={borderedDivRef}
-                    className="border border-white/15 py-24 rounded-xl overflow-hidden relative group" 
+                    className="border border-white/15 py-16 rounded-xl overflow-hidden relative group" 
                     style={{backgroundImage: `url(${starsBg.src})`, backgroundPositionY}}
                     animate={{backgroundPositionX: starsBg.width, }}
                     transition={{
@@ -150,8 +153,6 @@ export const GameChat = () => {
                     </motion.div>
                     
                     <div className="relative ">
-                        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6">Game Helper Chat</h1>
-
                         {/* Display paginated topic descriptions */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto text-center max-w-4xl">
                             {paginatedTopics.map((topic) => (
@@ -226,6 +227,8 @@ export const GameChat = () => {
                                 </p>
                             }
                         </div>
+
+                        <ChatHistoryComponent />
                     </div>
                 </motion.div>
             </div>

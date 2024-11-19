@@ -2,6 +2,7 @@ import Logo from "@/assets/logo.svg";
 import XSocial from "@/assets/social-x.svg";
 import InstaSocial from "@/assets/social-instagram.svg";
 import YTSocial from "@/assets/social-youtube.svg";
+import Link from "next/link";
 
 
 export const Footer = () => {
@@ -12,7 +13,9 @@ export const Footer = () => {
         <div className="flex flex-col lg:flex-row lg:items-center gap-8">
           <div className="flex items-center gap-2 lg:flex-1">
             <Logo className="h-6 w-6" />
-            <h3 className="font-medium">CelestQB Platform</h3>
+            <Link href={'/'}>
+              <span className="font-medium">CelestQB Platform</span>
+            </Link>
           </div>
         
           <nav className="flex flex-col lg:flex-row gap-5 lg:gap-7 lg:flex-1 lg:justify-center">

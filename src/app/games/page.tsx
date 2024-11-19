@@ -30,9 +30,10 @@ const Games = () => {
                 </AnimatePresence>
                 <Tabs selected={selected} setSelected={setSelected} />
             </section>  
-            <div>
+
+            <section>
                 <GameChat />
-            </div>        
+            </section> 
         </>
     );
 };
