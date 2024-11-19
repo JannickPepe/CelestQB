@@ -76,13 +76,13 @@ export const CallToAction = () => {
           </motion.div>
           
           <div className="relative">
-            <h2 className="text-3xl md:text-6xl max-w-2xl mx-auto tracking-tighter text-center font-medium">CelestQB gaming community for everyone.</h2>
+            <h2 className="text-3xl md:text-6xl max-w-2xl mx-auto tracking-tighter text-center font-medium">CelestQB Gaming List and Game Chat Helper.</h2>
             <p className="text-lg md:text-xl max-w-xs mx-auto text-center px-4 text-white/70 mt-5 tracking-tight">
               Get the best out of your gaming by connecting, share and help.
             </p>
 
-            <Link href={'https://www.youtube.com/@CelestQB'} className="flex justify-center mt-8">
-              <Button>Subscribe to QB</Button>
+            <Link href={'/games'} className="flex justify-center mt-8">
+              <Button>Game Chat Helper</Button>
             </Link>
           </div>
         </motion.div>

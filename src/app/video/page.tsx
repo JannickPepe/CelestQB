@@ -2,6 +2,8 @@ import { CallToAction } from "@/sections/CallToAction"
 import Image from "next/image";
 import { MdOutlineCelebration } from "react-icons/md";
 import YTCover from '../../../public/celestYTCover.png';
+import YouTubeDashboard from "@/sections/youtubeDashboard";
+import VideoStats from "@/sections/VideoStats";
 
 const page = () => {
 
@@ -9,7 +11,7 @@ const page = () => {
         <section>
             <div className="container max-w-7xl py-10 md:py-16">
 
-                <div className="mb-16">
+                <div className="mb-24">
                     <div className="flex items-center justify-center gap-1 ring-2 ring-purple-700 rounded-xl max-w-[260px] mx-auto mb-2">
                         <p className="text-center text-xs font-semibold text-zinc-400 py-1">
                             Subscribe, Like & Comment
@@ -34,9 +36,16 @@ const page = () => {
                 </div>
 
                 <section>
-                    <CallToAction />
+                    <YouTubeDashboard channelId={process.env.YOUTUBE_CELEST_KEY}  />
                 </section>
 
+                <section>
+                    <VideoStats videoId={process.env.YOUTUBE_VIDEO_ID_KEY} />
+                </section>
+
+                <section>
+                    <CallToAction />
+                </section>
             </div>
         </section>
     )

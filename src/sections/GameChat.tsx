@@ -124,8 +124,6 @@ export const GameChat = () => {
 
     return (
         <section className="py-20" ref={sectionRef}>
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center mb-6">Game Helper Chat</h1>
-
             <div className="container">
                 <motion.div 
                     ref={borderedDivRef}
@@ -188,7 +186,7 @@ export const GameChat = () => {
                          */}
 
                          {/* Dropdown for selecting topics */}
-                        <div className="my-4 mx-auto text-center">
+                        <div className="my-8 mx-auto text-center">
                             <select
                                 id="topic-select"
                                 value={selectedTopic || ""}

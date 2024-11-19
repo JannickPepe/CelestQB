@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ChatSummary from "./ChatTotal";
 
 type ChatHistory = {
     question: string;
@@ -33,8 +34,10 @@ const ChatHistoryComponent = () => {
     if (loading) return <p>Loading chat history...</p>;
 
     return (
-        <div className="max-w-2xl mx-auto relative">
+        <div className="max-w-3xl mx-auto relative">
             <h2 className="text-center text-2xl mb-2 font-semibold mt-8">Recent Questions</h2>
+
+            <ChatSummary />
             
             <div className="grid grid-cols-3 gap-4 mt-4">
                 {chatHistory.map((item, index) => (
