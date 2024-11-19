@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { EldenRingList, SWBFList, WukongList } from "../utils";
+import { DragonballList, EldenRingList, SWBFList, WukongList } from "../utils";
 import { GameChat } from "@/sections/GameChat";
 
 
@@ -17,13 +17,13 @@ const Games = () => {
                     {FEATURES.map((tab, index) => {
                         return selected === index ? (
                             <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            key={index}
-                            className="w-full"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 10 }}
+                                key={index}
+                                className="w-full"
                             >
-                            <tab.Feature />
+                                <tab.Feature />
                             </motion.div>
                         ) : undefined;
                     })}
@@ -96,6 +96,10 @@ const FEATURES = [
     {
         title: "Wukong",
         Feature: () => <Wukong text="Wukong" />,
+    },
+    {
+        title: "Dragonball",
+        Feature: () => <Dragonball text="DB Sparkling Zero" />,
     },
 ];
 
@@ -174,6 +178,38 @@ const Wukong = ({ text } : { text:string;}) => (
             <div className="p-2">
                 <div className="font-mono text-sm text-slate-200">
                     {WukongList.map((items) => (
+                        <div key={items.title}>
+                            <div className="max-w-3xl mx-auto">
+                                <h3 className="text-3xl text-center my-2"><span className="text-green-300">~</span> {items.title}</h3>
+                                <h4 className="text-center text-xl text-purple-400/80">About The Game</h4>
+                                <p className="text-base text-center">{items.text}</p>
+                                <h4 className="text-center text-xl mt-2 text-purple-400/80">My Experince</h4>
+                                <p className="text-base text-center">{items.textTwo}</p>
+                            </div>
+                            <div className="md:flex justify-center gap-6 mt-8 space-y-6 md:space-y-0 mb-4">
+                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}} />
+                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                            </div>
+                        </div> 
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const Dragonball = ({ text } : { text:string;}) => (
+    <div className="w-full">
+        <div className="relative w-full rounded-xl bg-slate-800 shadow-xl">
+            <div className="flex w-full gap-1.5 rounded-t-xl bg-slate-900 p-3">
+                <div className="h-3 w-3 rounded-full bg-red-500" />
+                <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                <div className="h-3 w-3 rounded-full bg-green-500" />
+            </div>
+            <div className="p-2">
+                <div className="font-mono text-sm text-slate-200">
+                    {DragonballList.map((items) => (
                         <div key={items.title}>
                             <div className="max-w-3xl mx-auto">
                                 <h3 className="text-3xl text-center my-2"><span className="text-green-300">~</span> {items.title}</h3>
