@@ -35,18 +35,12 @@ const VideoStats = ({ videoId }: { videoId: ReactNode }) => {
 
     return (
         <div>
-            <h3>Video Stats</h3>
-            <div>
-                <strong>Title:</strong> {videoData.snippet.title}
-            </div>
-            <div>
-                <strong>Views:</strong> {videoData.statistics.viewCount}
-            </div>
-            <div>
-                <strong>Likes:</strong> {videoData.statistics.likeCount}
-            </div>
-            <div>
-                <strong>Dislikes:</strong> {videoData.statistics.dislikeCount}
+            <div className='flex justify-center gap-4 mt-2 border px-4 py-2' style={{borderRadius:5}}>
+                <p className='max-w-[240px]'><span className='font-semibold text-violet-500'>Title:</span> {videoData.snippet.title}</p>
+                <span>*</span> 
+                <p><span className='font-semibold text-violet-500'>Views:</span> {videoData.statistics.viewCount}</p> 
+                <span>*</span>
+                <p><span className='font-semibold text-violet-500'>Likes:</span> {videoData.statistics.likeCount}</p> 
             </div>
         </div>
     );

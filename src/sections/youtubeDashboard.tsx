@@ -36,10 +36,14 @@ const ChannelStats = ({ channelId }: { channelId: ReactNode }) => {
             {error && <p>Error: {error}</p>}
 
             {channelData ? (
-                <div>
-                    <p>Title: {channelData.snippet.title}</p>
-                    <p>Video Count: {channelData.statistics.videoCount}</p>
-                    <p>Subscriber Count: {channelData.statistics.subscriberCount}</p>
+                <div className=''>
+                    <div className='flex justify-center gap-4 mt-2 border px-4 py-2' style={{borderRadius:5}}>
+                        <p><span className='font-semibold text-violet-500'>Title:</span> {channelData.snippet.title}</p>
+                        <span>*</span>
+                        <p><span className='font-semibold text-violet-500'>Video Count:</span> {channelData.statistics.videoCount}</p>
+                        <span>*</span>
+                        <p><span className='font-semibold text-violet-500'>Subscriber Count:</span> {channelData.statistics.subscriberCount}</p>
+                    </div>
                 </div>
             ) : (
                 <p>Loading channel data...</p>

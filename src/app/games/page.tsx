@@ -12,7 +12,9 @@ const Games = () => {
 
     return (
         <>
-            <h1 className="text-center font-bold text-xl md:text-3xl lg:text-4xl my-4">Game List Overview and Game Chat Helper</h1>
+            <h1 className="text-center font-bold text-xl md:text-3xl lg:text-4xl my-10">
+                <span className="text-purple-500">Game List</span> Overview and <span className="text-purple-500">Game Chat</span> Helper
+            </h1>
             <section className="mx-auto flex max-w-7xl flex-col-reverse items-center gap-6 px-4 py-8 mb-4 md:flex-row md:gap-12 md:px-8">
                 <AnimatePresence mode="wait">
                     {FEATURES.map((tab, index) => {
