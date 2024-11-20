@@ -13,18 +13,18 @@ const About = () => {
             </div>
 
             {/* STORY SECTION */}
-            <section className='text-center py-20' id="mystory">
+            <section className='text-center py-10 md:py-20' id="mystory">
                 <AboutAniText />
                 <StorySection />
             </section>
 
             {/* JOURNEY SECTION */}
-            <section className='text-center py-20' id="myjourney">
+            <section className='text-center py-10 md:py-20' id="myjourney">
                 <WhatIDo />
             </section>
 
             {/* CONTACT SECTION */}
-            <section className='text-center py-20' id="contact">
+            <section className='text-center py-10 md:py-20' id="contact">
                 <h2 className='text-3xl'>Contact</h2>
                 <div className='md:flex justify-center items-center gap-8 mt-4 px-10 md:px-0 space-y-4 md:space-y-0'>
                     <p className='border-2 border-violet-700 py-2 px-3 rounded-xl'>

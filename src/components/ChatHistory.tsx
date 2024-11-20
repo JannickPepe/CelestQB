@@ -39,7 +39,7 @@ const ChatHistoryComponent = () => {
 
             <ChatSummary />
             
-            <div className="grid grid-cols-3 gap-4 mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 px-6 md:px-0">
                 {chatHistory.map((item, index) => (
                     <div key={index} className="border-2" style={{borderRadius:6}}>
                         <div className="px-4 pt-2 text-center">

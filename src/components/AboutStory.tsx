@@ -22,7 +22,7 @@ const StorySection: React.FC = () => {
         >
             <div className="container mx-auto px-6 lg:px-12">
                 <motion.h2
-                    className="text-2xl md:text-4xl lg:text-5xl mt-28 font-bold mb-6 text-center"
+                    className="text-2xl md:text-4xl lg:text-5xl mt-24 md:mt-28 font-bold mb-6 text-center"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.6 } }}
                 >

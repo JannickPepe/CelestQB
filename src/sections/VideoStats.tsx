@@ -35,7 +35,7 @@ const VideoStats = ({ videoId }: { videoId: ReactNode }) => {
 
     return (
         <div>
-            <div className='flex justify-center gap-4 mt-2 border px-4 py-2' style={{borderRadius:5}}>
+            <div className='flex justify-center gap-4 mt-2 border px-4 py-2 text-sm md:text-base' style={{borderRadius:5}}>
                 <p className='max-w-[240px]'><span className='font-semibold text-violet-500'>Title:</span> {videoData.snippet.title}</p>
                 <span>*</span> 
                 <p><span className='font-semibold text-violet-500'>Views:</span> {videoData.statistics.viewCount}</p> 

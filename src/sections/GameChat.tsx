@@ -152,7 +152,7 @@ export const GameChat = () => {
                     
                     <div className="relative ">
                         {/* Display paginated topic descriptions */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto text-center max-w-4xl">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto text-center max-w-4xl px-6 md:px-0">
                             {paginatedTopics.map((topic) => (
                             <div key={topic.id} className="mb-4">
                                 <div className="border-2 border-purple-600" style={{borderRadius:7}}>
@@ -203,14 +203,16 @@ export const GameChat = () => {
                                 ))}
                             </select>
                         </div>
-
-                        <textarea
-                            value={question}
-                            onChange={(e) => setQuestion(e.target.value)}
-                            className="w-full px-2 py-3 text-gray-800 bg-white border border-gray-300 max-w-[360px] grid mx-auto shadow-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none hover:border-violet-500 hover:shadow-lg transition duration-300 ease-in-out"
-                            style={{borderRadius:7}}
-                            placeholder="Type your question..."
-                        />
+                        
+                        <div className="px-6 md:px-0">
+                            <textarea
+                                value={question}
+                                onChange={(e) => setQuestion(e.target.value)}
+                                className="w-full px-2 py-3 text-gray-800 bg-white border border-gray-300 max-w-[360px] grid mx-auto shadow-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent resize-none hover:border-violet-500 hover:shadow-lg transition duration-300 ease-in-out"
+                                style={{borderRadius:7}}
+                                placeholder="Type your question..."
+                            />
+                        </div>
 
                         <div className='flex justify-center items-center mt-2'>
                             <button onClick={handleChat} className="mt-2 border-2 border-purple-700 text-white p-2 rounded">

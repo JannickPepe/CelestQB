@@ -24,7 +24,7 @@ const page = () => {
                         My <span className="text-violet-600">recent</span> uploaded <span className="text-violet-600">Youtube </span> Videos
                     </h1>
 
-                    <Image src={YTCover} alt="CelestQB Youtube cover" className="max-w-[600px] mx-auto rounded-xl mt-8 shadow-md shadow-purple-700" />
+                    <Image src={YTCover} alt="CelestQB Youtube cover" className="max-w-full md:max-w-[600px] mx-auto rounded-xl mt-8 shadow-md shadow-purple-700" />
                 </section>
 
                 <section className="mb-16">

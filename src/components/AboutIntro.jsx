@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export const AboutAniText = () => {
     return (
         <div className="text-center">
-            <div className="text-2xl font-medium text-zinc-300 sm:text-3xl md:text-4xl lg:text-5xl">
+            <div className="text-2xl font-medium text-zinc-300 sm:text-3xl md:text-4xl lg:text-5xl px-3 md:px-0">
                 CelestQB Gaming Offers:
                 <AnimatedText
                 phrases={[
@@ -37,7 +37,7 @@ const AnimatedText = ({ phrases }) => {
     }, [phrases]);
 
     return (
-        <div className="relative mb-14 mt-2 ">
+        <div className="relative mb-4 md:mb-8 lg:mb-14 mt-2 ">
             {phrases.map((phrase) => {
                 const isActive = phrases[active] === phrase;
                 return (

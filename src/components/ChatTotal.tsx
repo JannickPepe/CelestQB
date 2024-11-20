@@ -31,7 +31,7 @@ const ChatSummary = () => {
     if (!chatSummary) return <p>Loading chat summary...</p>;
 
     return (
-        <div className="flex justify-center gap-6 my-4">
+        <div className="md:flex justify-center gap-6 my-4 space-y-4 md:space-y-0 max-w-[200px] md:max-w-none mx-auto md:mx-0 text-center">
             <p className="ring-2 ring-violet-500 px-2 py-1 rounded-full text-xs font-light">Total Questions Asked: <span className="font-bold underline">{chatSummary.totalQuestions}</span></p>
             <p className="ring-2 ring-violet-500 px-2 py-1 rounded-full text-xs font-light">
                 Topic with Most Answers: {" "}

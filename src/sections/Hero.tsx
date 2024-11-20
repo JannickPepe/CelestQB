@@ -110,13 +110,13 @@ export const Hero = () => {
       </motion.div>
       {/* END RING 3 */}
 
-      <div className="container relative mt-16">
+      <div className="container relative mt-4">
         <h1 className="text-8xl md:text-[168px] md:leading-none font-semibold text-center tracking-tighter bg-white bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,.5))] text-transparent bg-clip-text">
           CelestQB
         </h1>
         
         <p className="text-lg md:text-xl text-white/70 mt-5 text-center max-w-xl mx-auto">
-          Get the best news and updates within my game selection and follow along in the videoes. Service / help is availible with tips and tricks
+          Get the best news and updates within my game selection and follow my Youtube channel. <br/> You can find tips & guides and Game Chat Helper
         </p>
         
         <div className="flex justify-center mt-5">

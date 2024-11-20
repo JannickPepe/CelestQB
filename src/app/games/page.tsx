@@ -128,8 +128,8 @@ const SWBF = ({ text } : {text:string}) => (
                             </div>
                             <div className="md:flex justify-center gap-6 mt-8 space-y-6 md:space-y-0 mb-4">
                                 <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}} />
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlTwo} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlThree} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
                             </div>
                         </div> 
                     ))}
@@ -160,8 +160,8 @@ const EldenRing = ({ text } : { text:string;}) => (
                             </div>
                             <div className="md:flex justify-center gap-6 mt-8 space-y-6 md:space-y-0 mb-4">
                                 <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}} />
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlTwo} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlThree} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
                             </div>
                         </div> 
                     ))}
@@ -192,8 +192,8 @@ const Wukong = ({ text } : { text:string;}) => (
                             </div>
                             <div className="md:flex justify-center gap-6 mt-8 space-y-6 md:space-y-0 mb-4">
                                 <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}} />
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlTwo} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlThree} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
                             </div>
                         </div> 
                     ))}
@@ -224,8 +224,8 @@ const Dragonball = ({ text } : { text:string;}) => (
                             </div>
                             <div className="md:flex justify-center gap-6 mt-8 space-y-6 md:space-y-0 mb-4">
                                 <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}} />
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
-                                <Image src={items.imageUrl} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlTwo} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
+                                <Image src={items.imageUrlThree} alt="game image" className="max-h-[150px] max-w-[240px] mx-auto md:mx-0" style={{borderRadius: 10}}/>
                             </div>
                         </div> 
                     ))}

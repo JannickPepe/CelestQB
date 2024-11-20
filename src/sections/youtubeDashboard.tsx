@@ -37,7 +37,7 @@ const ChannelStats = ({ channelId }: { channelId: ReactNode }) => {
 
             {channelData ? (
                 <div className=''>
-                    <div className='flex justify-center gap-4 mt-2 border px-4 py-2' style={{borderRadius:5}}>
+                    <div className='flex justify-center gap-4 mt-2 border px-4 py-2 text-sm md:text-base' style={{borderRadius:5}}>
                         <p><span className='font-semibold text-violet-500'>Title:</span> {channelData.snippet.title}</p>
                         <span>*</span>
                         <p><span className='font-semibold text-violet-500'>Video Count:</span> {channelData.statistics.videoCount}</p>
