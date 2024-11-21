@@ -14,12 +14,12 @@ export const ShowMore: React.FC<ShowMoreProps> = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="text-center">
+        <div className="">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="mx-auto"
+                className="text-xs"
             >
-                {isOpen ? <CiUnread className="size-7 text-purple-500" /> : <CiRead className="size-7 text-purple-500" />}
+                {isOpen ? <CiUnread className="size-6 text-purple-500" /> : <div className="flex items-center gap-1 text-xs">General Info & The Newest Video <CiRead className="size-6 text-purple-500" /></div>}
             </button>
 
             {isOpen && (

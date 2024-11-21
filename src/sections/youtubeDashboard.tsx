@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useEffect, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-const ChannelStats = ({ channelId }: { channelId: ReactNode }) => {
+const ChannelStats = ({ channelId, className, title, video, subs }: { channelId: ReactNode; className?: string; title?: ReactNode; video?: ReactNode; subs?: ReactNode;}) => {
     const [channelData, setChannelData] = useState<any>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -37,12 +38,12 @@ const ChannelStats = ({ channelId }: { channelId: ReactNode }) => {
 
             {channelData ? (
                 <div className=''>
-                    <div className='flex justify-center gap-4 mt-2 border px-4 py-2 text-sm md:text-base' style={{borderRadius:5}}>
-                        <p><span className='font-semibold text-violet-500'>Title:</span> {channelData.snippet.title}</p>
+                    <div className={twMerge('flex justify-center gap-4 mt-2 border px-4 py-2 -ml-3', className)} style={{borderRadius:5}}>
+                        <p><span className='font-semibold text-violet-500'>{title}:</span> @{channelData.snippet.title}</p>
                         <span>*</span>
-                        <p><span className='font-semibold text-violet-500'>Video Count:</span> {channelData.statistics.videoCount}</p>
+                        <p><span className='font-semibold text-violet-500'>{subs}:</span> {channelData.statistics.subscriberCount}</p>
                         <span>*</span>
-                        <p><span className='font-semibold text-violet-500'>Subscriber Count:</span> {channelData.statistics.subscriberCount}</p>
+                        <p><span className='font-semibold text-violet-500'>{video}:</span> {channelData.statistics.videoCount}</p>
                     </div>
                 </div>
             ) : (

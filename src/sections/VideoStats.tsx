@@ -1,8 +1,9 @@
 "use client"
 
 import { useState, useEffect, ReactNode } from 'react';
+import { twMerge } from 'tailwind-merge';
 
-const VideoStats = ({ videoId }: { videoId: ReactNode }) => {
+const VideoStats = ({ videoId, className, title, likes, subs }: { videoId: ReactNode; className?: string; title?: ReactNode; likes?: ReactNode; subs?: ReactNode; }) => {
     const [videoData, setVideoData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -35,12 +36,12 @@ const VideoStats = ({ videoId }: { videoId: ReactNode }) => {
 
     return (
         <div>
-            <div className='flex justify-center gap-4 mt-2 border px-4 py-2 text-sm md:text-base' style={{borderRadius:5}}>
-                <p className='max-w-[240px]'><span className='font-semibold text-violet-500'>Title:</span> {videoData.snippet.title}</p>
+            <div className={twMerge('flex justify-center gap-4 mt-2 border px-4 py-2', className)} style={{borderRadius:5}}>
+                <p className=''><span className='font-semibold text-violet-500'>{title}:</span> {videoData.snippet.title}</p>
                 <span>*</span> 
-                <p><span className='font-semibold text-violet-500'>Views:</span> {videoData.statistics.viewCount}</p> 
+                <p><span className='font-semibold text-violet-500'>{subs}:</span> {videoData.statistics.viewCount}</p> 
                 <span>*</span>
-                <p><span className='font-semibold text-violet-500'>Likes:</span> {videoData.statistics.likeCount}</p> 
+                <p><span className='font-semibold text-violet-500'>{likes}:</span> {videoData.statistics.likeCount}</p> 
             </div>
         </div>
     );
