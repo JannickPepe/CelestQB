@@ -1,56 +1,69 @@
 "use client"
 
-import { useState, useEffect, ReactNode } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { HiOutlineGlobeAmericas } from "react-icons/hi2";
 
-const ChannelStats = ({ channelId, className, title, video, subs }: { channelId: ReactNode; className?: string; title?: ReactNode; video?: ReactNode; subs?: ReactNode;}) => {
-    const [channelData, setChannelData] = useState<any>(null);
-    const [error, setError] = useState<string | null>(null);
+interface YouTubeDashboardProps {
+    channelId: ReactNode;
+    createdDate?: string; // Optional property
+    fieldsToShow?: Array<'title' | 'createdDate' | 'location' | 'subscribers' | 'totalVideos' | 'totalViews'>; // Fields to display
+    className?: string;
+}
 
-    const fetchChannelData = async () => {
-        try {
-            const response = await fetch(`/api/youtube/channelStats?channelId=${channelId}`);
-            
-            if (!response.ok) {
-                throw new Error('Failed to fetch channel data');
-            }
+interface ChannelStats {
+    title: string;
+    location: string;
+    subscribers: number;
+    totalVideos: number;
+    totalViews: number;
+}
 
-            const data = await response.json();
-            setChannelData(data);  // Set the real channel data
-            setError(null);  // Reset any previous errors
+const YouTubeDashboard = ({
+    channelId,
+    createdDate,
+    className,
+    fieldsToShow = ['title', 'createdDate', 'location', 'subscribers', 'totalVideos', 'totalViews'], // Default to all fields
+}: YouTubeDashboardProps) => {
 
-        } catch (error: any) {
-            setError(error.message);  // Handle the error and set the error message
-            console.error('Error fetching channel data:', error);
-        }
-    };
+    const [channelStats, setChannelStats] = useState<ChannelStats | null>(null);
 
     useEffect(() => {
-        if (channelId) {
-            fetchChannelData();
+        const fetchChannelStats = async () => {
+        try {
+            const response = await fetch(`/api/youtube/channelStats?channelId=${channelId}`);
+            const data = await response.json();
+            setChannelStats({
+                title: data.title,
+                location: data.location,
+                subscribers: data.subscribers,
+                totalVideos: data.totalVideos,
+                totalViews: data.totalViews,
+            });
+        } catch (error) {
+            console.error('Error fetching channel stats:', error);
         }
+        };
 
+        fetchChannelStats();
     }, [channelId]);
 
-    return (
-        <div>
-            {error && <p>Error: {error}</p>}
+    if (!channelStats) {
+        return <div>Loading...</div>;
+    }
 
-            {channelData ? (
-                <div className=''>
-                    <div className={twMerge('flex justify-center gap-4 mt-2 border px-4 py-2 -ml-3', className)} style={{borderRadius:5}}>
-                        <p><span className='font-semibold text-violet-500'>{title}:</span> @{channelData.snippet.title}</p>
-                        <span>*</span>
-                        <p><span className='font-semibold text-violet-500'>{subs}:</span> {channelData.statistics.subscriberCount}</p>
-                        <span>*</span>
-                        <p><span className='font-semibold text-violet-500'>{video}:</span> {channelData.statistics.videoCount}</p>
-                    </div>
-                </div>
-            ) : (
-                <p>Loading channel data...</p>
+    return (
+        <div className={twMerge("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-xs mt-2", className)}>
+            {fieldsToShow.includes('title') && <h1 className='text-purple-500'>{channelStats.title}</h1>}
+            {fieldsToShow.includes('subscribers') && <p><span className='text-purple-500'>Subs:</span> {channelStats.subscribers}</p>}
+            {fieldsToShow.includes('totalVideos') && <p><span className='text-purple-500'>Videos:</span> {channelStats.totalVideos}</p>}
+            {fieldsToShow.includes('totalViews') && <p><span className='text-purple-500'>Views:</span> {channelStats.totalViews}</p>}
+            {fieldsToShow.includes('createdDate') && createdDate && (
+                <p><span className='text-purple-500'>Created:</span> {new Date(createdDate).toLocaleDateString()}</p>
             )}
+            {fieldsToShow.includes('location') && <p><span className='text-purple-500'>Location:</span> {channelStats.location}</p>}
         </div>
     );
 };
 
-export default ChannelStats;
+export default YouTubeDashboard;

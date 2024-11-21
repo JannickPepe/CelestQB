@@ -1,7 +1,6 @@
 import { CallToAction } from "@/sections/CallToAction"
 import Image from "next/image";
 import { MdOutlineCelebration } from "react-icons/md";
-import YTCover from '../../../public/celestYTCover.png';
 import YouTubeDashboard from "@/sections/youtubeDashboard";
 import VideoStats from "@/sections/VideoStats";
 import { ShowMore } from "@/components/GlobalShowMore";
@@ -34,19 +33,15 @@ const page = () => {
                             </div>
                             <div className="lg:-ml-12 my-4">
                                 <h3 className="text-3xl font-bold text-center md:text-start">CelestQB</h3>
-                                <YouTubeDashboard channelId={process.env.YOUTUBE_CELEST_KEY} className="border-none md:text-xs lg:px-0 mx-auto py-0 lg:max-w-[200px] lg:ml-[34px]" title='Channel' video='Videoes' subs='Subscribers' />
+                                <YouTubeDashboard channelId={process.env.YOUTUBE_CELEST_KEY} fieldsToShow={['title', 'subscribers', 'totalVideos']}  />
                                 <YoutubeModal />
                             
                                 <div className="">
-                                    <div className="text-start text-sm my-2 gap-1 flex justify-center md:justify-start items-center">
+                                    <div className="text-start text-sm gap-1 flex justify-center md:justify-start items-center">
                                         <ShowMore>
                                             <div className="">
                                                 <YouTubeDashboard 
-                                                    channelId={process.env.YOUTUBE_CELEST_KEY} 
-                                                    title={'Tag'} 
-                                                    subs={'Subs'} 
-                                                    video={'Videos'}  
-                                                    className="flex-none border-none md:text-xs px-0 py-0" 
+                                                    channelId={process.env.YOUTUBE_CELEST_KEY} createdDate="2014-08-08"
                                                 />
                                                 <VideoStats 
                                                     videoId={process.env.YOUTUBE_VIDEO_ID_KEY} 
@@ -68,7 +63,7 @@ const page = () => {
                                     </button>
                                     <button className="border-2 border-purple-500 px-2 py-1 hover:border-white transition-transform" style={{borderRadius:7}}>
                                         <Link href={'/features'}>
-                                            Tips n Guides
+                                            Tips & Guides
                                         </Link>
                                     </button>
                                 </div>

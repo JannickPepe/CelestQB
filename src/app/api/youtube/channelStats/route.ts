@@ -23,12 +23,22 @@ export async function GET(request: Request) {
 
         if (data.items && data.items.length > 0) {
             const channelData = data.items[0]; // Grab the first (and only) item from the response
-            return NextResponse.json(channelData); // Return the channel data
+            
+            const result = {
+                title: channelData.snippet.title,
+                creationDate: channelData.snippet.publishedAt, // Channel creation date
+                location: channelData.snippet.country || 'Unknown', // Channel location
+                subscribers: channelData.statistics.subscriberCount,
+                totalVideos: channelData.statistics.videoCount,
+                totalViews: channelData.statistics.viewCount,
+            };
+
+            return NextResponse.json(result); // Return the formatted channel data
         } else {
             return NextResponse.json({ error: 'Channel not found' }, { status: 404 });
         }
         
     } catch (error) {
-        return NextResponse.json({ error: 'Failed to fetch channel stats', details: error }, { status: 500 });
+        return NextResponse.json({ error: 'Failed to fetch channel stats', details: error}, { status: 500 });
     }
 }

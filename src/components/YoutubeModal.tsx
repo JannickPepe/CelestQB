@@ -1,7 +1,7 @@
 "use client"
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import { FaYoutube } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaTwitch } from "react-icons/fa6";
@@ -11,6 +11,11 @@ import { MdOndemandVideo } from "react-icons/md";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { HiOutlineGlobeAmericas } from "react-icons/hi2";
+import { IoCloseOutline } from "react-icons/io5";
+import YouTubeDashboard from "@/sections/youtubeDashboard";
+import YouTubeShareButton from "./SocialShare";
+import ShowShareButton from "./ShowSocialShare";
+
 
 
 const YoutubeModal = () => {
@@ -29,7 +34,9 @@ const YoutubeModal = () => {
     );
 };
 
-const SpringModal = ({ isOpen, setIsOpen }) => {
+const SpringModal = ({ isOpen, setIsOpen } : {isOpen: ReactNode; setIsOpen: any;}) => {
+    
+    const createdDateString = "2014-08-08";
 
     return (
         <AnimatePresence>
@@ -47,9 +54,14 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                         animate={{ scale: 1, rotate: "0deg" }}
                         exit={{ scale: 0, rotate: "0deg" }}
                         onClick={(e) => e.stopPropagation()}
-                        className="w-full cursor-default"
+                        className="w-full cursor-default relative mt-4"
                     >
-                    
+                        <button
+                            onClick={() => setIsOpen(false)}
+                            className="absolute translate-x-[276px] -translate-y-6" 
+                        >
+                            <IoCloseOutline className="size-6" />
+                        </button>
                         <div className="relative z-10 pl-3">
                             {/* SOCIAL MEDIA */}
                             <h3 className="text-xl font-bold text-start mb-2">
@@ -112,7 +124,13 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                                     <RiUserVoiceLine className="size-6" />
                                 </div>
                                 <div className="col-span-5">
-                                    <h4 className="text-sm">Subs:</h4>
+                                    <div className="text-sm">
+                                        <YouTubeDashboard 
+                                            channelId={process.env.NEXT_PUBLIC_YOUTUBE_API_KEY} 
+                                            fieldsToShow={['subscribers']}
+                                            className="text-sm mt-0"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
@@ -121,7 +139,13 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                                     <MdOndemandVideo className="size-6" />
                                 </div>
                                 <div className="col-span-5">
-                                    <h4 className="text-sm">Videos:</h4>
+                                    <div className="text-sm">
+                                        <YouTubeDashboard 
+                                            channelId={process.env.NEXT_PUBLIC_YOUTUBE_API_KEY} 
+                                            fieldsToShow={['totalVideos']}
+                                            className="text-sm mt-0"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
@@ -130,7 +154,14 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                                     <BsGraphUpArrow className="size-6" />
                                 </div>
                                 <div className="col-span-5">
-                                    <h4 className="text-sm">Total Show:</h4>
+                                    <div className="text-sm">
+                                        <YouTubeDashboard 
+                                            channelId={process.env.NEXT_PUBLIC_YOUTUBE_API_KEY} 
+                                            fieldsToShow={['totalViews']}
+                                            className="text-sm mt-0"
+                                        />
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -139,7 +170,9 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                                     <RiErrorWarningLine className="size-6" />
                                 </div>
                                 <div className="col-span-5">
-                                    <h4 className="text-sm">Created 8. jul. 2014</h4>
+                                    <div className="text-sm">
+                                        <span className="text-purple-500">Created:</span> 8. jul. 2014
+                                    </div>
                                 </div>
                             </div>
 
@@ -148,25 +181,29 @@ const SpringModal = ({ isOpen, setIsOpen }) => {
                                     <HiOutlineGlobeAmericas className="size-6" />
                                 </div>
                                 <div className="col-span-5">
-                                    <h4 className="text-sm">USA</h4>
+                                    <div className="text-sm">
+                                        <YouTubeDashboard 
+                                            channelId={process.env.NEXT_PUBLIC_YOUTUBE_API_KEY} 
+                                            fieldsToShow={['location']}
+                                            className="text-sm mt-0"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex justify-center gap-4 mt-4">
-                                <button 
-                                    className="text-white font-semibold text-sm px-2 py-1 bg-purple-600 hover:bg-transparent transition-colors" 
-                                    style={{borderRadius:7}}
-                                >
-                                    Share
-                                </button>
-                                <button
-                                    onClick={() => setIsOpen(false)}
-                                    className=" text-white font-semibold text-sm py-1 border-2 border-purple-500 px-2 hover:text-purple-400 transition-colors"
-                                    style={{borderRadius:7}}
-                                >
-                                    Return
-                                </button>
+                            <div 
+                                className="text-white font-semibold text-sm px-2 py-1 text-center" 
+                                style={{borderRadius:7}}
+                            >
+                                <ShowShareButton />
                             </div>
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className=" text-white font-semibold flex justify-center mx-auto text-sm py-1 mt-2 border-2 border-purple-500 px-2 hover:text-purple-400 transition-colors"
+                                style={{borderRadius:7}}
+                            >
+                                Back
+                            </button>
                         </div>
                     </motion.div>
                 </motion.div>
