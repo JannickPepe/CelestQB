@@ -17,9 +17,9 @@ export const ShowMore: React.FC<ShowMoreProps> = ({ children }) => {
         <div className="">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-xs"
+                className="text-xs flex mx-auto"
             >
-                {isOpen ? <CiUnread className="size-6 text-purple-500" /> : <div className="flex items-center gap-1 text-xs">General Info & The Newest Video <CiRead className="size-6 text-purple-500" /></div>}
+                {isOpen ? <CiUnread className="size-6 text-violet-500" /> : <div className="flex items-center gap-1 text-xs">General Info & The <span className="text-purple-400">Newest</span> Video <CiRead className="size-6 text-violet-500" /></div>}
             </button>
 
             {isOpen && (

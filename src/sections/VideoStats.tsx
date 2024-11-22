@@ -36,12 +36,10 @@ const VideoStats = ({ videoId, className, title, likes, subs }: { videoId: React
 
     return (
         <div>
-            <div className={twMerge('flex justify-center gap-4 mt-2 border px-4 py-2', className)} style={{borderRadius:5}}>
-                <p className=''><span className='font-semibold text-violet-500'>{title}:</span> {videoData.snippet.title}</p>
-                <span>*</span> 
-                <p><span className='font-semibold text-violet-500'>{subs}:</span> {videoData.statistics.viewCount}</p> 
-                <span>*</span>
-                <p><span className='font-semibold text-violet-500'>{likes}:</span> {videoData.statistics.likeCount}</p> 
+            <div className={twMerge('flex justify-center gap-4 mt-2 border px-4 py-2 text-xs', className)} style={{borderRadius:5}}>
+                <p className=''><span className='font-semibold text-purple-400'>{title}:</span> {videoData.snippet.title}</p>
+                <p><span className='font-semibold text-purple-400'>{subs}:</span> {videoData.statistics.viewCount}</p> 
+                <p><span className='font-semibold text-purple-400'>{likes}:</span> {videoData.statistics.likeCount}</p> 
             </div>
         </div>
     );

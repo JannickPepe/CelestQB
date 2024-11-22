@@ -13,7 +13,6 @@ import { RiErrorWarningLine } from "react-icons/ri";
 import { HiOutlineGlobeAmericas } from "react-icons/hi2";
 import { IoCloseOutline } from "react-icons/io5";
 import YouTubeDashboard from "@/sections/youtubeDashboard";
-import YouTubeShareButton from "./SocialShare";
 import ShowShareButton from "./ShowSocialShare";
 
 
@@ -35,8 +34,6 @@ const YoutubeModal = () => {
 };
 
 const SpringModal = ({ isOpen, setIsOpen } : {isOpen: ReactNode; setIsOpen: any;}) => {
-    
-    const createdDateString = "2014-08-08";
 
     return (
         <AnimatePresence>
@@ -58,7 +55,7 @@ const SpringModal = ({ isOpen, setIsOpen } : {isOpen: ReactNode; setIsOpen: any;
                     >
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute translate-x-[276px] -translate-y-6" 
+                            className="absolute translate-x-[120px] lg:translate-x-[276px] -translate-y-6" 
                         >
                             <IoCloseOutline className="size-6" />
                         </button>
@@ -171,7 +168,7 @@ const SpringModal = ({ isOpen, setIsOpen } : {isOpen: ReactNode; setIsOpen: any;
                                 </div>
                                 <div className="col-span-5">
                                     <div className="text-sm">
-                                        <span className="text-purple-500">Created:</span> 8. jul. 2014
+                                        <span className="text-violet-400">Created:</span> 8. jul. 2014
                                     </div>
                                 </div>
                             </div>

@@ -43,7 +43,7 @@ export default function GuidesList({ guides, totalPages, currentPage }: GuidesLi
                     <p className="mt-2">{guide.text}</p>
 
                     {guide.image && (
-                        <Image src={guide.image} alt={guide.title} className="my-6" height={150} width={300} style={{borderRadius: 6}} />
+                        <Image src={guide.image} alt={guide.title} className="mt-6" height={150} width={300} style={{borderRadius: 6}} />
                     )}
                 </div>
                 ))}

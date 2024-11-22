@@ -7,6 +7,7 @@ import { ShowMore } from "@/components/GlobalShowMore";
 import celestImg from "../../assets/celest-icon-nobg.png";
 import Link from "next/link";
 import YoutubeModal from "@/components/YoutubeModal";
+import mediaGif from "../../assets/social-media.gif";
 
 const page = () => {
 
@@ -26,14 +27,35 @@ const page = () => {
                         My <span className="text-violet-600">recent</span> uploaded <span className="text-violet-600">Youtube </span> Videos
                     </h1>
 
-                    <div className="md:max-w-[600px] mx-auto rounded-xl mt-8 mb-16 shadow-md shadow-purple-600 bg-neutral-900/50 group">
+                    <div className="md:max-w-[600px] mx-auto rounded-xl mt-8 mb-16 shadow-md shadow-purple-600 bg-neutral-900/50">
                         <div className="grid grid-cols-1 md:grid-cols-2 md:max-w-[540px]">
-                            <div className="md:max-w-[200px] flex justify-center md:justify-end">
-                                <Image src={celestImg} alt="celestqb avatar" className="size-40 mt-4 md:mt-8 md:mb-3 group-hover:rotate-12 transition-transform" />
+                            <div className="relative overflow-hidden md:max-w-[200px] flex justify-center md:justify-center group">
+                                <Image 
+                                    priority 
+                                    src={celestImg} 
+                                    alt="celestqb avatar" 
+                                    className="size-28 md:size-40 mt-4 md:mb-3" 
+                                />
+                                {/* Text box */}
+                                <Link href={'https://www.youtube.com/@celestqb'}>
+                                    <Image
+                                        src={mediaGif}
+                                        alt="GIF Animation"
+                                        unoptimized
+                                        className="absolute inset-0 m-auto translate-x-16 -translate-y-5 md:-translate-y-14 size-20 object-contain opacity-0 group-hover:opacity-100"
+                                    />
+                                </Link>
                             </div>
+
                             <div className="lg:-ml-12 my-4">
-                                <h3 className="text-3xl font-bold text-center md:text-start">CelestQB</h3>
-                                <YouTubeDashboard channelId={process.env.YOUTUBE_CELEST_KEY} fieldsToShow={['title', 'subscribers', 'totalVideos']}  />
+                                <h3 className="text-2xl md:text-3xl font-bold text-center md:text-start">
+                                    CelestQB
+                                </h3>
+                                <YouTubeDashboard 
+                                    channelId={process.env.YOUTUBE_CELEST_KEY} 
+                                    fieldsToShow={['title', 'subscribers', 'totalVideos']} 
+                                    className="grid grid-cols-3 text-center md:text-start" 
+                                />
                                 <YoutubeModal />
                             
                                 <div className="">
@@ -41,14 +63,16 @@ const page = () => {
                                         <ShowMore>
                                             <div className="">
                                                 <YouTubeDashboard 
-                                                    channelId={process.env.YOUTUBE_CELEST_KEY} createdDate="2014-08-08"
+                                                    channelId={process.env.YOUTUBE_CELEST_KEY} 
+                                                    createdDate="2014-08-08"
+                                                    className="grid grid-cols-3 text-center md:text-start"
                                                 />
                                                 <VideoStats 
                                                     videoId={process.env.YOUTUBE_VIDEO_ID_KEY} 
                                                     title={'Title'} 
                                                     subs={'Subs'} 
                                                     likes={'Likes'} 
-                                                    className="flex-none border-none md:text-xs px-0 py-0" 
+                                                    className="flex-none border-none md:text-xs lg:px-0 py-0" 
                                                 />
                                             </div>
                                         </ShowMore>
@@ -73,12 +97,66 @@ const page = () => {
                 </section>
 
                 <section className="grid grid-cols md:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-                    <iframe className="max-w-[560px] mx-auto" height="315" src="https://www.youtube.com/embed/R1wem1SDFvc?si=npfhDpI0KtqrcQj0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                    <iframe className="max-w-[560px] mx-auto" height="315" src="https://www.youtube.com/embed/eqSr6_aAiaE?si=a9pj_wjmlEMKHt94" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                    <iframe className="max-w-[560px] mx-auto" height="315" src="https://www.youtube.com/embed/nZKhNgGn_18?si=gisDWgBntro65zvf" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                    <iframe className="max-w-[560px] mx-auto" height="315" src="https://www.youtube.com/embed/R1wem1SDFvc?si=npfhDpI0KtqrcQj0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                    <iframe className="max-w-[560px] mx-auto" height="315" src="https://www.youtube.com/embed/eqSr6_aAiaE?si=a9pj_wjmlEMKHt94" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                    <iframe className="max-w-[560px] mx-auto" height="315" src="https://www.youtube.com/embed/nZKhNgGn_18?si=gisDWgBntro65zvf" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                    <iframe 
+                        className="max-w-[560px] mx-auto" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/R1wem1SDFvc?si=npfhDpI0KtqrcQj0" 
+                        title="YouTube video player"  
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="no-referrer" 
+                        allowFullScreen
+                    >
+                    </iframe>
+                    <iframe 
+                        className="max-w-[560px] mx-auto" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/eqSr6_aAiaE?si=a9pj_wjmlEMKHt94" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="no-referrer" 
+                        allowFullScreen
+                    >
+                    </iframe>
+                    <iframe 
+                        className="max-w-[560px] mx-auto" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/nZKhNgGn_18?si=gisDWgBntro65zvf" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="no-referrer" 
+                        allowFullScreen
+                    >
+                    </iframe>
+                    <iframe 
+                        className="max-w-[560px] mx-auto" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/R1wem1SDFvc?si=npfhDpI0KtqrcQj0" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="no-referrer" 
+                        allowFullScreen
+                    >
+                    </iframe>
+                    <iframe 
+                        className="max-w-[560px] mx-auto" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/eqSr6_aAiaE?si=a9pj_wjmlEMKHt94" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="no-referrer" 
+                        allowFullScreen
+                    >
+                    </iframe>
+                    <iframe 
+                        className="max-w-[560px] mx-auto" 
+                        height="315" 
+                        src="https://www.youtube.com/embed/nZKhNgGn_18?si=gisDWgBntro65zvf" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="no-referrer" 
+                        allowFullScreen
+                    >
+                    </iframe>
                 </section>
 
                 <section>

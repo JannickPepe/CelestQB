@@ -43,7 +43,7 @@ export default function TipsList({ tips, totalPages, currentPage }: TipsListProp
                     <p className="mt-2">{tip.text}</p>
 
                     {tip.image && (
-                        <Image src={tip.image} alt={tip.title} className="my-6" height={150} width={300} style={{borderRadius: 6}} />
+                        <Image src={tip.image} alt={tip.title} className="mt-6" height={150} width={300} style={{borderRadius: 6}} />
                     )}
                 </div>
                 ))}

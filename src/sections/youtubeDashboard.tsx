@@ -2,7 +2,7 @@
 
 import React, { ReactNode, useEffect, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { HiOutlineGlobeAmericas } from "react-icons/hi2";
+
 
 interface YouTubeDashboardProps {
     channelId: ReactNode;
@@ -54,14 +54,14 @@ const YouTubeDashboard = ({
 
     return (
         <div className={twMerge("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 text-xs mt-2", className)}>
-            {fieldsToShow.includes('title') && <h1 className='text-purple-500'>{channelStats.title}</h1>}
-            {fieldsToShow.includes('subscribers') && <p><span className='text-purple-500'>Subs:</span> {channelStats.subscribers}</p>}
-            {fieldsToShow.includes('totalVideos') && <p><span className='text-purple-500'>Videos:</span> {channelStats.totalVideos}</p>}
-            {fieldsToShow.includes('totalViews') && <p><span className='text-purple-500'>Views:</span> {channelStats.totalViews}</p>}
+            {fieldsToShow.includes('title') && <h1 className='text-purple-400'>{channelStats.title}</h1>}
+            {fieldsToShow.includes('subscribers') && <p><span className='text-purple-400'>Subs:</span> {channelStats.subscribers}</p>}
+            {fieldsToShow.includes('totalVideos') && <p><span className='text-purple-400'>Videos:</span> {channelStats.totalVideos}</p>}
+            {fieldsToShow.includes('totalViews') && <p><span className='text-purple-400'>Views:</span> {channelStats.totalViews}</p>}
             {fieldsToShow.includes('createdDate') && createdDate && (
-                <p><span className='text-purple-500'>Created:</span> {new Date(createdDate).toLocaleDateString()}</p>
+                <p><span className='text-purple-400'>Created:</span> {new Date(createdDate).toLocaleDateString()}</p>
             )}
-            {fieldsToShow.includes('location') && <p><span className='text-purple-500'>Location:</span> {channelStats.location}</p>}
+            {fieldsToShow.includes('location') && <p><span className='text-purple-400'>Location:</span> {channelStats.location}</p>}
         </div>
     );
 };
