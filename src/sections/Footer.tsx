@@ -3,7 +3,7 @@ import XSocial from "@/assets/social-x.svg";
 import InstaSocial from "@/assets/social-instagram.svg";
 import YTSocial from "@/assets/social-youtube.svg";
 import Link from "next/link";
-
+import { FaTwitch } from "react-icons/fa6";
 
 export const Footer = () => {
 
@@ -26,9 +26,15 @@ export const Footer = () => {
           </nav>
       
           <div className="flex gap-5 lg:flex-1 lg:justify-end">
-            <XSocial className="text-white/40 hover:text-white transition" />
-            <InstaSocial className="text-white/40 hover:text-white transition" />
-            <YTSocial className="text-white/40 hover:text-white transition" />
+            <Link href={'twitter.com/CelestQB'}>
+              <XSocial className="text-white/40 hover:text-white transition" />
+            </Link>
+            <Link href={'twitch.tv/celestqb'}>
+              <FaTwitch className="text-white/40 hover:text-white transition size-5 mt-1" />
+            </Link>
+            <Link href={'https://www.youtube.com/@CelestQB'}>
+              <YTSocial className="text-white/40 hover:text-white transition" />
+            </Link>
           </div>
         </div>
       </div>

@@ -8,8 +8,8 @@ import { IoCloseCircleSharp } from "react-icons/io5";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import EmailButton from "./OutlookButton";
 import Link from "next/link";
-
-
+import chatGif from '@/assets/chatbubble.gif';
+import Image from "next/image";
 
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
     const mouseX = useMotionValue(0);
@@ -94,7 +94,12 @@ const ScrollIcon: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
             >
                 {!isExpanded ? (
-                    <IoChatbubbleEllipsesOutline size={30} className='text-white' />
+                    <Image
+                        className='size-8 bg-white rounded-full'
+                        src={chatGif}
+                        alt="GIF Animation"
+                        unoptimized 
+                    />
                 ) : (
                     <motion.div 
                         ref={borderedDivRef}
