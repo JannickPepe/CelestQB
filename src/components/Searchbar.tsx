@@ -1,10 +1,8 @@
-// components/SearchBar.tsx
 "use client";
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import searchGif from '@/assets/searchGif.gif';
-import Image from 'next/image';
+import HoverStopGif from './FeaturesGifStop';
 
 interface SearchBarProps {
     initialQuery?: string;
@@ -37,12 +35,7 @@ export default function SearchBar({ initialQuery = '' }: SearchBarProps) {
                     style={{borderTopLeftRadius: 10, borderBottomLeftRadius: 10}}
                 />
                 <button onClick={handleSearch} className="px-2 py-2 bg-purple-400 text-zinc-200" style={{borderTopRightRadius: 10, borderBottomRightRadius: 10}}>
-                    <Image
-                        className='size-7'
-                        src={searchGif}
-                        alt="GIF Animation"
-                        unoptimized 
-                    />
+                    <HoverStopGif />
                 </button>
             </div>
         </section>

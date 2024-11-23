@@ -1,15 +1,14 @@
-"use client"
+"use client";
 
 import starsBg from "@/assets/stars.png";
 import gridLines from "@/assets/grid-lines.png";
 import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { RefObject, useEffect, useRef, useState } from "react";
 import { IoCloseCircleSharp } from "react-icons/io5";
-import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import EmailButton from "./OutlookButton";
 import Link from "next/link";
-import chatGif from '@/assets/chatbubble.gif';
-import Image from "next/image";
+import HoverStopGif from "./ChatPopUpGifStop";
+
 
 const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
     const mouseX = useMotionValue(0);
@@ -28,6 +27,7 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
         return () => {
             window.removeEventListener('mousemove', updateMousePosition)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     return [mouseX, mouseY];
@@ -94,12 +94,7 @@ const ScrollIcon: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
             >
                 {!isExpanded ? (
-                    <Image
-                        className='size-8 bg-white rounded-full'
-                        src={chatGif}
-                        alt="GIF Animation"
-                        unoptimized 
-                    />
+                    <HoverStopGif />
                 ) : (
                     <motion.div 
                         ref={borderedDivRef}

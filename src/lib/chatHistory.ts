@@ -3,22 +3,41 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const fetchChatHistory = async () => {
+export const fetchChatHistoryCount = async () => {
     try {
-        // Fetch the 10 most recent questions
+        const totalCount = await prisma.chatHistory.count();
+        return Math.min(totalCount, 9); // Cap the count at 9
+    } catch (error) {
+        console.error("Error fetching chat history count:", error);
+        return 0;
+    }
+};
+
+export const fetchChatHistory = async (page: number, pageSize: number) => {
+    const totalLimit = 9; // Total items capped at 9
+    const skip = (page - 1) * pageSize;
+
+    if (skip >= totalLimit) {
+        return { questions: [], totalPages: Math.ceil(totalLimit / pageSize) };
+    }
+
+    try {
         const questions = await prisma.chatHistory.findMany({
-            take: 6, // Limit the results to 10
-            orderBy: { created_at: "desc" }, // Sort by newest first
+            skip,
+            take: Math.min(pageSize, totalLimit - skip),
+            orderBy: { created_at: "desc" },
             select: {
-                question: true, // Only fetch the `question` field
-                response: true, // Include response column
-                created_at : true, // Optional: include the created date for display
+                question: true,
+                response: true,
+                created_at: true,
             },
         });
-        return questions;
 
+        const totalPages = Math.ceil(totalLimit / pageSize);
+
+        return { questions, totalPages };
     } catch (error) {
         console.error("Error fetching chat history:", error);
-        return [];
+        return { questions: [], totalPages: 0 };
     }
 };

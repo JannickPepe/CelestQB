@@ -10,27 +10,27 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: "“This product has completely transformed how I manage my projects and deadlines”",
-    name: "Sophia Perez",
-    title: "Director @ Quantum",
+    text: "“Celest is a really good and helpfull streamer, always keeping the good energi and tone”",
+    name: "GambleFiction(Twitch)",
+    title: "@Gamble.Fiction",
     avatarImg: avatar1,
   },
   {
-    text: "“These AI tools have completely revolutionized our SEO entire strategy overnight”",
-    name: "Jamie Lee",
-    title: "Founder @ Pulse",
+    text: "“As a competive duelist in high rank, Celest really shines in hook swing and double parry”",
+    name: "Krispy",
+    title: "@CrispeHD",
     avatarImg: avatar2,
   },
   {
-    text: "“The user interface is so intuitive and easy to use, it has saved us countless hours”",
-    name: "Alisa Hester",
-    title: "Product @ Innovate",
+    text: "“His tips and guides in how to improve is really usefull, specially for serious gaming”",
+    name: "Napalmed",
+    title: "@NapalmedSOUP",
     avatarImg: avatar3,
   },
   {
-    text: "“Our team's productivity has increased significantly since we started using this tool”",
-    name: "Alec Whitten",
-    title: "CTO @ Tech Solutions",
+    text: "“Having been able to stream with Celest for hours was one of the best experiences on YT”",
+    name: "The Star Bazaar",
+    title: "@TheStarBazaar",
     avatarImg: avatar4,
   },
 ];
