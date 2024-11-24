@@ -124,10 +124,10 @@ export const GameChat = () => {
 
     return (
         <section className="py-20" ref={sectionRef}>
-            <div className="container">
+            <div className="px-4 md:px-0">
                 <motion.div 
                     ref={borderedDivRef}
-                    className="border border-white/15 py-16 rounded-xl overflow-hidden relative group" 
+                    className="py-16 overflow-hidden relative group" 
                     style={{backgroundImage: `url(${starsBg.src})`, backgroundPositionY}}
                     animate={{backgroundPositionX: starsBg.width, }}
                     transition={{

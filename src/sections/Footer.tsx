@@ -1,9 +1,9 @@
-import Logo from "@/assets/logo.svg";
 import XSocial from "@/assets/social-x.svg";
-import InstaSocial from "@/assets/social-instagram.svg";
 import YTSocial from "@/assets/social-youtube.svg";
 import Link from "next/link";
 import { FaTwitch } from "react-icons/fa6";
+import celestYT from '@/assets/celestYT.png';
+import Image from "next/image";
 
 export const Footer = () => {
 
@@ -12,7 +12,7 @@ export const Footer = () => {
       <div className="container">
         <div className="flex flex-col lg:flex-row lg:items-center gap-8">
           <div className="flex items-center gap-2 lg:flex-1">
-            <Logo className="h-6 w-6" />
+            <Image className="h-6 w-6" src={celestYT} alt="CelestQB logo" />
             <Link href={'/'}>
               <span className="font-medium">CelestQB Platform</span>
             </Link>

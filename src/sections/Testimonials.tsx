@@ -6,7 +6,9 @@ import avatar3 from "@/assets/avatar-3.png";
 import avatar4 from "@/assets/avatar-4.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
+const krispyLink = 'https://www.youtube.com/@CrispeHD'
 
 const testimonials = [
   {
@@ -14,24 +16,28 @@ const testimonials = [
     name: "GambleFiction(Twitch)",
     title: "@Gamble.Fiction",
     avatarImg: avatar1,
+    ytLink: 'https://www.youtube.com/@Gamble.Fiction'
   },
   {
     text: "“As a competive duelist in high rank, Celest really shines in hook swing and double parry”",
     name: "Krispy",
     title: "@CrispeHD",
     avatarImg: avatar2,
+    ytLink: 'https://www.youtube.com/@CrispeHD'
   },
   {
     text: "“His tips and guides in how to improve is really usefull, specially for serious gaming”",
     name: "Napalmed",
     title: "@NapalmedSOUP",
     avatarImg: avatar3,
+    ytLink: 'https://www.youtube.com/@NapalmedSOUP'
   },
   {
     text: "“Having been able to stream with Celest for hours was one of the best experiences on YT”",
     name: "The Star Bazaar",
     title: "@TheStarBazaar",
     avatarImg: avatar4,
+    ytLink: 'https://www.youtube.com/@TheStarBazaar'
   },
 ];
 
@@ -66,19 +72,21 @@ export const Testimonials = () => {
                 <div className="text-lg md:text-2xl tracking-tight">
                   {testimonial.text}
                 </div>
-                <div className="flex items-center gap-3 mt-5">
-                  <div className="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light before:content-[''] before:absolute before:inset-0 before:border before:border-white/30 before:z-10 before:rounded-lg">
-                    <Image src={testimonial.avatarImg} alt={`Avatar for ${testimonial.name}`} className="h-11 w-11 rounded-lg grayscale" />
-                  </div>
-                  <div className="">
+                <Link href={testimonial.ytLink} className="group">
+                  <div className="flex items-center gap-3 mt-5">
+                    <div className="relative group-hover:after:bg-[rgb(198,175,232)] after:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light before:content-[''] before:absolute before:inset-0 before:border before:border-white/30 before:z-10 before:rounded-lg">
+                      <Image src={testimonial.avatarImg} alt={`Avatar for ${testimonial.name}`} className="h-11 w-11 rounded-lg grayscale" />
+                    </div>
                     <div>
-                      {testimonial.name}
-                    </div>
-                    <div className="text-white/50 text-sm">
-                      {testimonial.title}
+                      <div className="group-hover:border-b group-hover:border-b-purple-500">
+                        {testimonial.name}
+                      </div>
+                      <div className="text-white/50 text-sm">
+                        {testimonial.title}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             ))}
           </motion.div>

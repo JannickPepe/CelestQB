@@ -1,8 +1,8 @@
-import LogoIcon from "@/assets/logo.svg";
-import MenuIcon from "@/assets/icon-menu.svg";
 import { Button } from "@/components/Button";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import celestYT from '@/assets/celestYT.png';
+import Image from "next/image";
 
 export const Header = () => {
 
@@ -13,8 +13,8 @@ export const Header = () => {
         <div className="flex justify-between items-center md:border border-white/15 md:p-2.5 rounded-xl max-w-2xl mx-auto relative">
           <div className="absolute inset-0 backdrop-blur -z-10 hidden md:block"></div>
           <div>
-            <Link href={'/'} className="border border-white/15 h-10 w-10 rounded-lg inline-flex justify-center items-center">
-              <LogoIcon className="h-8 w-8" />
+            <Link href={'/'} className="border border-white/15 h-10 w-10 rounded-full inline-flex justify-center items-center hover:scale-105 hover:border-purple-600/60 hover:border-2 transition-transform">
+              <Image className="h-8 w-8 rounded-full" src={celestYT} alt="CelestQB logo" />
             </Link>
           </div>
           <div className="hidden md:block">
