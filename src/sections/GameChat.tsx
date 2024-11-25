@@ -47,6 +47,7 @@ export const GameChat = () => {
         target: sectionRef,
         offset: ['start end', 'end start'],
     });
+    const audio = useRef<HTMLAudioElement | null>(null); // Initialize as null
 
     const backgroundPositionY = useTransform(scrollYProgress, [0, 1], [-300, 300]);
     const [mouseX, mouseY] = useRelativeMousePosition(borderedDivRef);
@@ -56,6 +57,7 @@ export const GameChat = () => {
     const [selectedTopic, setSelectedTopic] = useState<number | null>(null); // Store selected topic ID
     const [question, setQuestion] = useState('');
     const [response, setResponse] = useState('');
+    const [loading, setLoading] = useState(false); // For button state
 
     const [paginatedTopics, setPaginatedTopics] = useState<Topic[]>([]); // For descriptions
     const [currentPage, setCurrentPage] = useState(1);
@@ -106,19 +108,47 @@ export const GameChat = () => {
         setSelectedTopic(Number(e.target.value));
     };
 
+    useEffect(() => {
+        // Initialize the Audio object only on the client
+        if (typeof window !== "undefined") {
+            audio.current = new Audio('/audio/swing.mp3');
+        }
+    }, []);
+
     // For my chat question and answer
-    const handleChat = async (event: React.FormEvent)=> {
+    const handleChat = async (event: React.FormEvent) => {
         event.preventDefault();
+
         if (!selectedTopic) {
             alert("Please select a topic first!");
             return;
         }
+
+        setLoading(true);
+        setResponse('');
+        const audioInstance = audio.current;
+
         try {
+            if (audioInstance) {
+                // Start playing audio
+                audioInstance.loop = true;
+                audioInstance.play();
+            }
+
+             // Delay API call by 1 second
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+
             const res = await axios.post('/api/chat', { question, topicId: selectedTopic });
             setResponse(res.data.response);
-
         } catch (error) {
-        console.error("Failed to get response:", error);
+            console.error("Failed to get response:", error);
+        } finally {
+            // Stop audio
+            if (audioInstance) {
+                audioInstance.pause();
+                audioInstance.currentTime = 0;
+            }
+            setLoading(false);
         }
     };
 
@@ -179,12 +209,7 @@ export const GameChat = () => {
                                 <FaRegArrowAltCircleRight className="size-5" />
                             </button>
                         </div>
-                        {/*
-                        <p className="mt-4 text-center">
-                            Page {currentPage} of {totalPages || 1}
-                        </p>
-                         */}
-
+        
                          {/* Dropdown for selecting topics */}
                         <div className="my-8 mx-auto text-center">
                             <select
@@ -215,8 +240,12 @@ export const GameChat = () => {
                         </div>
 
                         <div className='flex justify-center items-center mt-2'>
-                            <button onClick={handleChat} className="mt-2 border-2 border-purple-700 text-white p-2 rounded">
-                                Ask Me
+                            <button 
+                                onClick={handleChat} 
+                                disabled={loading} 
+                                className="mt-2 border-2 border-purple-700 text-white p-2 rounded"
+                            >
+                                {loading ? 'Thinking...' : 'Ask Me'}
                             </button>
                         </div>
 
