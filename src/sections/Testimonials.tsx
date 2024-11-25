@@ -1,14 +1,13 @@
 "use client";
 
-import avatar1 from "@/assets/avatar-1.png";
-import avatar2 from "@/assets/avatar-2.png";
-import avatar3 from "@/assets/avatar-3.png";
-import avatar4 from "@/assets/avatar-4.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import avatar1 from "@/assets/gambleYT-logo.png";
+import avatar2 from "@/assets/krispyYT-logo.png";
+import avatar3 from "@/assets/naplmedYT-logo.png";
+import avatar4 from "@/assets/bazarYT-logo.png";
 
-const krispyLink = 'https://www.youtube.com/@CrispeHD'
 
 const testimonials = [
   {
@@ -74,8 +73,8 @@ export const Testimonials = () => {
                 </div>
                 <Link href={testimonial.ytLink} className="group">
                   <div className="flex items-center gap-3 mt-5">
-                    <div className="relative group-hover:after:bg-[rgb(198,175,232)] after:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light before:content-[''] before:absolute before:inset-0 before:border before:border-white/30 before:z-10 before:rounded-lg">
-                      <Image src={testimonial.avatarImg} alt={`Avatar for ${testimonial.name}`} className="h-11 w-11 rounded-lg grayscale" />
+                    <div className="relative group-hover:after:bg-[rgb(198,175,232)] after:content-[''] after:absolute after:inset-0 after:bg-[rgb(140,69,244)] after:mix-blend-soft-light before:content-[''] before:absolute before:inset-0 before:border before:border-white/30 before:z-10">
+                      <Image src={testimonial.avatarImg} alt={`Avatar for ${testimonial.name}`} className="h-11 w-11 grayscale" />
                     </div>
                     <div>
                       <div className="group-hover:border-b group-hover:border-b-purple-500">

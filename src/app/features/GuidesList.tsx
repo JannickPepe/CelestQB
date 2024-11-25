@@ -65,6 +65,7 @@ export default function GuidesList({ guides, totalPages, currentPage }: GuidesLi
                         </li>
                     ))}
 
+                    {/*
                     <li>
                         <button
                             onClick={() => handlePageChange(totalPages)}
@@ -73,6 +74,7 @@ export default function GuidesList({ guides, totalPages, currentPage }: GuidesLi
                             Last Page
                         </button>
                     </li>
+                    */}
                 </ul>
             </div>
         </section>

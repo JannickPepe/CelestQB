@@ -65,6 +65,7 @@ export default function TipsList({ tips, totalPages, currentPage }: TipsListProp
                         </li>
                     ))}
 
+                    {/*
                     <li>
                         <button
                             onClick={() => handlePageChange(totalPages)}
@@ -73,6 +74,7 @@ export default function TipsList({ tips, totalPages, currentPage }: TipsListProp
                             Last Page
                         </button>
                     </li>
+                    */}
                 </ul>
             </div>
         </section>

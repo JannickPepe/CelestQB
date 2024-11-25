@@ -3,6 +3,8 @@ import Link from "next/link";
 import MobileMenu from "./MobileMenu";
 import celestYT from '@/assets/celestYT.png';
 import Image from "next/image";
+import AudioHeader from "@/components/AudioHeader";
+
 
 export const Header = () => {
 
@@ -12,13 +14,16 @@ export const Header = () => {
       <div className="container">
         <div className="flex justify-between items-center md:border border-white/15 md:p-2.5 rounded-xl max-w-2xl mx-auto relative">
           <div className="absolute inset-0 backdrop-blur -z-10 hidden md:block"></div>
-          <div>
+
+          <div className="flex items-center gap-4">
             <Link href={'/'} className="border border-white/15 h-10 w-10 rounded-full inline-flex justify-center items-center hover:scale-105 hover:border-purple-600/60 hover:border-2 transition-transform">
               <Image className="h-8 w-8 rounded-full" src={celestYT} alt="CelestQB logo" />
             </Link>
+            <AudioHeader />
           </div>
+        
           <div className="hidden md:block">
-            <nav className="flex gap-8 text-sm">
+            <nav className="flex gap-6 text-sm">
               <a href="/features" className="text-white/70 hover:text-white transition">Features</a>
               <a href="/games" className="text-white/70 hover:text-white transition">Games</a>
               <a href="about" className="text-white/70 hover:text-white transition">About</a>
