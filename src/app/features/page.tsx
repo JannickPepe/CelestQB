@@ -1,7 +1,7 @@
 import { getGuides } from "@/lib/guides";
 import { getTips } from "@/lib/tips";
-import GuidesList from "./GuidesList";
-import TipsList from "./TipsList";
+import GuidesList from "../../components/Features/GuidesList";
+import TipsList from "../../components/Features/TipsList";
 import SearchBar from "../../components/Features/Searchbar";
 
 

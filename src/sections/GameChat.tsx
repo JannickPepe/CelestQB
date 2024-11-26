@@ -7,6 +7,7 @@ import { RefObject, useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
 import ChatHistoryComponent from "@/components/Chat/ChatHistory";
+import { ShowMore } from "@/components/Chat/ChatShowMore";
 
 
 interface Topic {
@@ -256,8 +257,11 @@ export const GameChat = () => {
                                 </p>
                             }
                         </div>
-
-                        <ChatHistoryComponent />
+                        
+                        <ShowMore>
+                            <ChatHistoryComponent />
+                        </ShowMore>
+                    
                     </div>
                 </motion.div>
             </div>

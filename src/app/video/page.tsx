@@ -3,7 +3,7 @@ import Image from "next/image";
 import { MdOutlineCelebration } from "react-icons/md";
 import YouTubeDashboard from "@/sections/youtubeDashboard";
 import VideoStats from "@/sections/VideoStats";
-import { ShowMore } from "@/components/GlobalShowMore";
+import { ShowMore } from "@/components/Video/YoutubeShowMore";
 import celestImg from "../../assets/celest-icon-nobg.png";
 import Link from "next/link";
 import YoutubeModal from "@/components/Video/YoutubeModal";
