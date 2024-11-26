@@ -4,7 +4,7 @@ import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { Footer } from "@/sections/Footer";
 import { Header } from "@/sections/Header";
-import ScrollIcon from "@/components/ShowChatIcon";
+import ScrollIcon from "@/components/Chat/ShowChatIcon";
 import { Analytics } from "@vercel/analytics/react"
 
 

@@ -2,7 +2,7 @@ import { getGuides } from "@/lib/guides";
 import { getTips } from "@/lib/tips";
 import GuidesList from "./GuidesList";
 import TipsList from "./TipsList";
-import SearchBar from "../../components/Searchbar";
+import SearchBar from "../../components/Features/Searchbar";
 
 
 export default async function FeaturesPage({searchParams,}: {searchParams: { guidesPage?: string; tipsPage?: string; query?: string; };}) {

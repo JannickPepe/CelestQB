@@ -6,7 +6,7 @@ import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } fr
 import { RefObject, useEffect, useRef, useState } from "react";
 import axios from 'axios';
 import { FaRegArrowAltCircleLeft, FaRegArrowAltCircleRight } from "react-icons/fa";
-import ChatHistoryComponent from "@/components/ChatHistory";
+import ChatHistoryComponent from "@/components/Chat/ChatHistory";
 
 
 interface Topic {

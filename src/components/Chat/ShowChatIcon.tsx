@@ -5,7 +5,7 @@ import gridLines from "@/assets/grid-lines.png";
 import { motion, useMotionTemplate, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { RefObject, useEffect, useRef, useState } from "react";
 import { IoCloseCircleSharp } from "react-icons/io5";
-import EmailButton from "./OutlookButton";
+import EmailButton from "../About/OutlookButton";
 import Link from "next/link";
 import HoverStopGif from "./ChatPopUpGifStop";
 

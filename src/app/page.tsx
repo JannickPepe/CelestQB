@@ -1,4 +1,4 @@
-import { Reviews } from "@/components/Reviews";
+import { Reviews } from "@/sections/Gallery";
 import { CallToAction } from "@/sections/CallToAction";
 import { Features } from "@/sections/Features";
 import { Hero } from "@/sections/Hero";

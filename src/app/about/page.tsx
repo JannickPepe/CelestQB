@@ -1,9 +1,9 @@
 import React from 'react'
-import { AboutNav } from '@/components/AboutTabs';
-import { AboutAniText } from '@/components/AboutIntro';
-import WhatIDo from '@/components/AboutJourney';
-import StorySection from '@/components/AboutStory';
-import EmailButton from '@/components/OutlookButton';
+import { AboutNav } from '@/components/About/AboutTabs';
+import { AboutAniText } from '@/components/About/AboutIntro';
+import WhatIDo from '@/components/About/AboutJourney';
+import StorySection from '@/components/About/AboutStory';
+import EmailButton from '@/components/About/OutlookButton';
 
 const About = () => {
     return (

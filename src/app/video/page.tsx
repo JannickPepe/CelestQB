@@ -6,7 +6,7 @@ import VideoStats from "@/sections/VideoStats";
 import { ShowMore } from "@/components/GlobalShowMore";
 import celestImg from "../../assets/celest-icon-nobg.png";
 import Link from "next/link";
-import YoutubeModal from "@/components/YoutubeModal";
+import YoutubeModal from "@/components/Video/YoutubeModal";
 import mediaGif from "../../assets/social-media.gif";
 
 const page = () => {

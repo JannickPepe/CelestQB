@@ -4,7 +4,7 @@
 import { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useInView } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import Phone from './Phone';
+import Phone from '../components/Phone';
 
 
 const PHONES = [
